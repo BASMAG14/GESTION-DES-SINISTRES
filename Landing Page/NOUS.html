@@ -1,0 +1,1093 @@
+
+     <!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>E-sinistre Mamda | MCMA</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <style>
+    :root {
+      --main-color: #007b33;
+      --secondary-color: #b20887;
+      --background-light: #f5f5f5;
+      --header-bg: rgba(0, 0, 0, 0.6);
+      --banner-height: 60vh;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--background-light);
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(95, 94, 94, 0.6);
+      color: white;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.06);
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      flex-wrap: wrap;
+      text-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+    }
+
+
+    header img {
+      height: 70px;
+    }
+
+    .menu-select {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .dropdown {
+      position: relative;
+    }
+
+    .menu-link {
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+      padding: 10px;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: white;
+      border-radius: 6px;
+      box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+      min-width: 180px;
+      z-index: 100;
+    }
+
+    .dropdown-content a {
+      display: block;
+      padding: 12px;
+      text-decoration: none;
+      color: #1e3d2f;
+      font-weight: 500;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .banner {
+      margin-top: 100px;
+      height: var(--banner-height);
+      background: url('main-banner.jpg') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-shadow: 0 0 10px rgba(0,0,0,0.7);
+    }
+
+    .banner h1 {
+      font-size: 2.5rem;
+      padding-left: 12px;
+      border-left: 4px solid white;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      margin: 40px auto 20px;
+      color: var(--secondary-color);
+    }
+
+    .content {
+      max-width: 1000px;
+      margin: auto;
+      padding: 20px;
+      background: white;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      border-radius: 8px;
+    }
+
+    .content p {
+      margin-bottom: 1.5rem;
+      font-size: 1rem;
+    }
+
+    .centered {
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .newsletter-section {
+      background: linear-gradient(135deg, #0c3825, #1abc9c);
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .newsletter-form {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .newsletter-form input, .newsletter-form button {
+      padding: 12px;
+      border-radius: 4px;
+      border: none;
+      font-size: 1rem;
+    }
+
+    .newsletter-form input {
+      min-width: 250px;
+    }
+
+    .newsletter-form button {
+      background: #9b1455;
+      color: white;
+      cursor: pointer;
+    }
+
+    footer {
+      background: #1e3d2f;
+      color: white;
+      padding: 2rem;
+      font-size: 0.9rem;
+      text-align: center;
+    }
+
+
+
+
+
+
+
+
+
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      padding-top: 100px;
+      background: #f5f5f5;
+    }
+
+    /* ✅ Header */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(95, 94, 94, 0.6);
+      color: white;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.06);
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      flex-wrap: wrap;
+      text-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+    }
+
+    header img {
+      height: 80px;
+    }
+
+    .menu-select {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .dropdown {
+      position: relative;
+    }
+
+    .menu-link {
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+      padding: 10px 15px;
+      display: inline-block;
+      transition: color 0.3s ease;
+    }
+
+    .dropdown:hover .menu-link {
+      color: #4CAF50;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: white;
+      top: 100%;
+      left: 0;
+      min-width: 200px;
+      box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+      border-radius: 6px;
+      z-index: 999;
+    }
+
+    .dropdown-content a {
+      color: #1e3d2f;
+      padding: 12px 20px;
+      display: block;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #e9f5ed;
+      color: #007b33;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .search-wrapper {
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+
+    .search-input {
+      width: 0;
+      opacity: 0;
+      transition: width 0.4s ease, opacity 0.4s ease;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid white;
+      color: white;
+      margin-left: 10px;
+      font-size: 14px;
+      padding: 2px 5px;
+    }
+
+    .search-wrapper.active .search-input {
+      width: 150px;
+      opacity: 1;
+    }
+
+    .search-toggle {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    .search-input::placeholder {
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    main {
+      padding: 40px 60px;
+    }
+
+    main h1 {
+      font-size: 36px;
+      color: #007b33;
+      margin-bottom: 10px;
+    }
+
+    main p {
+      font-size: 18px;
+      color: #555;
+    }
+
+    section {
+      padding: 3rem 2rem;
+    }
+    @keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.newsletter-section {
+  background: linear-gradient(135deg, #0c3825 0%, #1abc9c 100%);
+  color: white;
+  padding: 60px 20px;
+  text-align: center;
+  position: relative;
+}
+
+.newsletter-container {
+  max-width: 1000px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.newsletter-text h2 {
+  font-size: 32px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.newsletter-text span {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.newsletter-text p {
+  margin-top: 10px;
+  font-size: 16px;
+  max-width: 400px;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.newsletter-form input {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  width: 250px;
+  font-size: 14px;
+}
+
+.newsletter-form button {
+  background-color: #9b1455;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.newsletter-form button:hover {
+  background-color: #7d1044;
+}
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+  border-bottom: 1px solid #444;
+  padding-bottom: 30px;
+}
+
+.footer-left, .footer-middle, .footer-right {
+  flex: 1 1 300px;
+}
+
+.footer-logo {
+  max-width: 160px;
+  margin-bottom: 15px;
+}
+
+.footer-description {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #eee;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  color: #f6feff;
+}
+
+.footer-links li {
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.footer-right p, .footer-right i {
+  color: #eff9f7;
+  font-size: 14px;
+}
+
+.contact-section i {
+  margin-right: 8px;
+}
+
+.social-links a {
+  margin-left: 10px;
+  color: #00d2b0;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.footer-bottom {
+  text-align: center;
+  font-size: 13px;
+  margin-top: 20px;
+  color: #ccc;
+}
+
+.footer-bottom a {
+  color: #00d2b0;
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+  html {
+    scroll-behavior: smooth;
+  }
+  .actus-grid {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 40px auto;
+}
+
+.actu-carte {
+  position: relative;
+  width: 500px;
+  height: 300px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.actu-carte img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 160, 130, 0.8);
+  color: #fff;
+  padding: 30px;
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.overlay h3 {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.overlay p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  max-width: 90%;
+}
+
+.overlay button {
+  background-color: #00e0a0;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.actu-carte:hover .overlay {
+  opacity: 1;
+}
+
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      width: 100%;
+      height: 100%;
+      font-family: Arial, sans-serif;
+     
+    }
+
+    .slider {
+      position: relative;
+      width: 100%;
+      height: 70vh; /* Hauteur réduite */
+    }
+
+    .slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .slide.active {
+      opacity: 1;
+      z-index: 1;
+    }
+.content {
+  width: 100%;
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 30px;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  text-align: left;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  color: #333;
+}
+
+    
+
+    .content h2 {
+      font-size: 26px;
+      margin-bottom: 15px;
+    }
+
+    .content p {
+      font-size: 15px;
+      margin-bottom: 20px;
+    }
+
+    .content button {
+      background-color: #00e0b6;
+      color: white;
+      border: none;
+      padding: 10px 22px;
+      font-size: 14px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .content button:hover {
+      background-color: #00c8a4;
+    }
+
+
+  .search-wrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+
+  .search-input {
+    width: 0;
+    opacity: 0;
+    transition: width 0.4s ease, opacity 0.4s ease;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid white;
+    color: white;
+    margin-left: 10px;
+    font-size: 14px;
+    padding: 2px 5px;
+  }
+
+  .search-wrapper.active .search-input {
+    width: 150px;
+    opacity: 1;
+  }
+
+  .search-toggle {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+  }
+
+  .search-input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+
+
+
+
+  .banner {
+  margin-top: 100px;
+  height: 60vh;
+  background: url('main-banner.jpg') no-repeat center center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  color: white;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+  padding: 0 40px;
+}
+
+.banner-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.banner h1 {
+  font-size: 2.8rem;
+  font-weight: bold;
+  border-left: 5px solid white;
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+
+.breadcrumb {
+  font-size: 1rem;
+  margin-top: 10px;
+  padding-left: 25px;
+  opacity: 0.9;
+}
+
+
+.societaire-intro {
+  background-color: #fff;
+  padding: 40px 20px;
+  text-align: center;
+  max-width: 1000px;
+  margin: auto;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.societaires-section {
+  background: linear-gradient(135deg, #00af91, #16c79a);
+  color: white;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.societaires-title {
+  font-size: 2.4rem;
+  font-weight: bold;
+  max-width: 900px;
+  margin: 0 auto 50px;
+  line-height: 1.4;
+}
+
+.societaires-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+}
+
+
+
+.societaire-intro h2 {
+ 
+   color: #a70d79;
+}
+.societaires-grid {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.soc-box {
+  max-width: 300px;
+  font-size: 1.1rem;
+  background-color: transparent;
+  border-left: 2px solid white;
+  padding: 10px 20px;
+  line-height: 1.6;
+  
+  /* pour aligner verticalement */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 200px; /* hauteur fixe pour bien aligner les cercles */
+}
+
+.soc-box p {
+  text-align: center;
+  margin: 0;
+}
+
+.soc-circle {
+  width: 16px;
+  height: 16px;
+  border: 2px solid white;
+  border-radius: 50%;
+  margin-top: 5px;
+}
+.legal-links {
+  background-color: #020906;
+  padding: 20px 10px;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.legal-links a {
+  color: #f0f0f0;
+  font-size: 14px;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.legal-links a:hover {
+  color: #00d2b0; /* effet dynamique au survol */
+  text-decoration: underline;
+}
+
+
+
+
+  
+.search-toggle {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 1.4rem;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 50%;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+/* Quand on touche le bouton, montrer l'input */
+.search-wrapper:hover .search-input {
+  width: 180px;
+  opacity: 1;
+  padding: 6px 12px;
+  pointer-events: auto;
+}
+
+.search-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: scale(1.05);
+}
+
+.search-input {
+  width: 0;
+  opacity: 0;
+  border: none;
+  border-radius: 20px;
+  font-size: 1rem;
+  transition: width 0.4s ease, opacity 0.4s ease, padding 0.3s;
+  background-color: rgb(169, 168, 168);
+  color: black;
+  pointer-events: none;
+}
+
+
+
+  
+
+
+
+  .search-input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+.banner {
+  margin-top: 100px;
+  height: 60vh;
+  background: url('main-banner.jpg') no-repeat center center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  color: white;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+  padding: 0 40px;
+}
+
+.banner-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.banner h1 {
+  font-size: 2.8rem;
+  font-weight: bold;
+  border-left: 5px solid white;
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+
+.breadcrumb {
+  font-size: 1rem;
+  margin-top: 10px;
+  padding-left: 25px;
+  opacity: 0.9;
+}
+
+.societaire-intro {
+  background-color: #fff;
+  padding: 40px 20px;
+  text-align: center;
+  max-width: 1000px;
+  margin: auto;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.societaire-intro h2 {
+  font-size: 2rem;
+  color: #b20887; /* Couleur rose foncé #821a48 si tu veux */
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="logo-mamda-mcma.png" alt="Logo Mamda-MCMA">
+    <nav class="menu-select">
+      <div class="dropdown">
+        <a href="#" class="menu-link">MON ESPACE</a>
+        <div class="dropdown-content">
+          <a href="#">Gestion des Sinistres</a>
+          <a href="#">Paiement en ligne</a>
+          <a href="postule.html">Nous Rejoindre</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <a href="#contact" class="menu-link">CONTACT</a>
+        <div class="dropdown-content">
+          <a href="#">Email</a>
+          <a href="#">Téléphone</a>
+          <a href="#">Localisation</a>
+        </div>
+      </div>
+      <div class="search-wrapper">
+        <button class="search-toggle" onclick="toggleSearch()">
+          <i class="fa fa-search"></i>
+        </button>
+        <input type="text" class="search-input" placeholder="Rechercher..." />
+      </div>
+      <div class="dropdown">
+        <a href="#" class="menu-link">☰ MENU <i class="fa fa-chevron-down"></i></a>
+        <div class="dropdown-content">
+          <a href="nous.html">nous ?</a>
+          <a href="nos-produits.html">Nos produits</a>
+          <a href="offres-emploi.html">Offres d'emploi</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Bannière avec titre et fil d'ariane -->
+<section class="banner">
+  <div class="banner-container">
+    <h1>MAMDA ET MCMA</h1>
+    <div class="breadcrumb">
+      Accueil › Qui sommes-nous ? › Mamda et Mcma
+    </div>
+  </div>
+</section>
+
+<!-- Contenu principal -->
+<section class="societaire-intro">
+  <h2>L’ESPRIT MUTUALISTE !</h2>
+  
+  <p><strong>MAMDA et MCMA sont les deux principales et plus anciennes mutuelles au Maroc.
+    Elles proposent toutes deux un large éventail de produits d’assurance, d’épargne et de retraite depuis maintenant plus de 50 ans.</strong></p>
+
+  <p>Dédiée au monde agricole, la Mutuelle Agricole Marocaine D’Assurances, MAMDA, accompagne, depuis 1963, les agriculteurs et les protège contre les aléas de l’existence, notamment les risques climatiques.</p>
+
+  <p>Quant à MCMA, fondée en 1969, elle a été créée dans le but de promouvoir le secteur mutualiste au sein de l’ensemble des couches de la société marocaine.
+  Elle propose ainsi une offre généraliste de produits dédiés aux particuliers et à toutes les catégories professionnelles, et fédère ainsi des groupements appartenant à toutes les professions, notamment les enseignants.</p>
+
+  <p>Fondées sur un système de cotisations entre acteurs d’une même branche professionnelle, les mutuelles offrent à leurs membres des services d’assurance et de prévoyance ciblés leur permettant de se prémunir contre les risques inhérents à leur activité professionnelle mais également de couvrir leur famille et les aléas de la vie.</p>
+
+  <p>MAMDA et MCMA se distinguent des assureurs par leur fonctionnement basé sur la solidarité.
+  Elles appartiennent à tous leurs assurés dits sociétaires et cherchent avant tout à protéger les intérêts de leurs membres et à leur garantir des services de qualité, adaptés à leurs besoins spécifiques.</p>
+
+  <p>Chez MAMDA et MCMA, l’assurance est au service de l’humain et non du profit.
+  Nous œuvrons sans relâche pour concevoir les meilleurs contrats aux meilleurs prix, pour améliorer continuellement la qualité de nos services et servir scrupuleusement les intérêts de nos sociétaires.</p>
+
+  <p style="margin-top: 30px;"><strong>La mutualité, tout un état d’esprit !</strong></p>
+</section>
+<section class="societaire-intro">
+  <h2>SOCIÉTAIRES!</h2>
+  
+  <p>MAMDA et MCMA encouragent l’esprit mutualiste et participatif en incitant leurs sociétaires à se regrouper selon leurs affinités régionales, professionnelles ou en fonction de leurs besoins spécifiques.
+
+Ces groupements, véritables relais de proximité, jouent un rôle essentiel d’intermédiaires entre les sociétaires et la mutuelle. Ils permettent de défendre efficacement les intérêts d’une même communauté, tout en contribuant à la conception de produits adaptés à sa réalité.
+
+Cette organisation favorise une meilleure représentativité, une écoute active et une co-construction des offres. Les sociétaires bénéficient ainsi de solutions sur mesure, accompagnées de conditions tarifaires avantageuses.
+
+Plus qu’une simple structure, les groupements incarnent l’esprit de solidarité et d’engagement qui anime MAMDA et MCMA : mettre l’humain au centre, valoriser la proximité, et répondre de manière équitable aux besoins de tous.</p>
+
+ 
+
+  
+</section>
+
+
+
+<section class="societaires-section">
+  <h2 class="societaires-title">
+    L’ORGANISATION EN GROUPEMENTS PRÉSENTE <br> DE NOMBREUX AVANTAGES
+  </h2>
+  <div class="societaires-grid">
+    <div class="soc-box">
+      <p>Les sociétaires bénéficient d’une <br> tarification avantageuse</p>
+      <div class="soc-circle"></div>
+    </div>
+    <div class="soc-box">
+      <p>Les sociétaires se voient offrir des <br> solutions adéquates à leurs <br> spécificités professionnelles</p>
+      <div class="soc-circle"></div>
+    </div>
+    <div class="soc-box">
+      <p>Les sociétaires bénéficient de la <br> ristourne Mutualité</p>
+      <div class="soc-circle"></div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+  <section class="newsletter-section">
+  <div class="newsletter-container">
+    <div class="newsletter-text">
+      <h2>INSCRIPTION<br><span>À LA NEWSLETTER</span></h2>
+      <p>Inscrivez-vous à la newsletter pour recevoir en premier nos actualités</p>
+    </div>
+    <div class="newsletter-form">
+      <input type="email" id="emailInput" placeholder="Email">
+      <button onclick="showConfirmation()">INSCRIPTION</button>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-left">
+      <img src="Mamda MCMA logo.png." alt="Mamda MCMA Logo" class="footer-logo" />
+      <p class="footer-description">
+        MAMDA et MCMA sont les deux principales et plus anciennes mutuelles d'assurance au Maroc. 
+        Elles proposent toutes deux un large éventail de produits d’assurance automobile, habitation, 
+        épargne et retraite depuis maintenant plus de 60 ans.
+      </p>
+    </div>
+
+    <div class="footer-middle">
+      <ul class="footer-links">
+        <li><strong>➞ QUI SOMMES-NOUS ?</strong></li>
+        <li><strong>➞ NOS PRODUITS</strong></li>
+        <li><strong>➞ LIENS UTILES</strong></li>
+        <li><strong>➞ NOS OFFRES D'EMPLOI</strong></li>
+      </ul>
+    </div>
+
+    <div class="footer-right">
+      <div class="contact-section" id="contact">
+      
+        
+     
+       <p><strong>➞ CONTACT</strong></p>
+        <p><i class="fas fa-map-marker-alt"></i> Angle Avenue Mohammed VI et Rue Houmane El Fatouaki, Rabat 10200</p>
+        <p><i class="fas fa-phone-alt"></i> 3113</p>
+      </div>
+      <div class="social-section">
+        <p><strong>➞ SUIVEZ NOUS :</strong></p>
+        <div class="social-links">
+          <div>MAMDA &nbsp;
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+          <div>MCMA &nbsp;
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <section class="legal-links">
+  <a href="mentions-legales.html">Mentions légales</a>
+  <a href="reglementations.html">Informations réglementaires</a>
+  <a href="donnees.html">Données personnelles</a>
+  <a href="accessibilite.html">Accessibilité</a>
+  <a href="cookies.html">Cookies</a>
+  <a href="contact.html">Nous contacter</a>
+  <a href="resiliation.html">Résiliation</a>
+  <a href="reclamation.html">Réclamation / Médiation</a>
+  <a href="recrutement.html">GMF recrute</a>
+  <a href="groupe-covea.html">Le Groupe Covéa</a>
+</section>
+
+  <div class="footer-bottom">
+    <p>© 2025 - MAMDA & MCMA. Tous droits réservés • <a href="#">Conditions générales d’utilisation</a> • <a href="#">Plan du site</a> • <a href="#">Site by ...</a></p>
+  </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<footer>
+  <p>&copy; 2025 Mamda | MCMA Safi - Tous droits réservés</p>
+</footer>
+
+  <script>
+    function toggleSearch() {
+      document.querySelector('.search-wrapper').classList.toggle('active');
+    }
+  </script>
+
+</body>
+</html>

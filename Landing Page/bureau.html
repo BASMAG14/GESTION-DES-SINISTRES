@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Réseau des Bureaux Directs</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- CSS Leaflet -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+<!-- JS Leaflet -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f6f8;
+      color: #333;
+    }
+    .bureaux-section {
+      padding: 60px 20px;
+    }
+    .bureaux-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 20px;
+      color: #083c5b;
+    }
+    .bureaux-intro {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 30px;
+      font-size: 1.1rem;
+      color: #555;
+    }
+    .bureaux-search {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 50px;
+      flex-wrap: wrap;
+    }
+    .bureaux-search input,
+    .bureaux-search button {
+      padding: 12px 16px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      background-color: white;
+      transition: 0.3s;
+    }
+    .bureaux-search button {
+      background-color: #00af91;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    .bureaux-search button:hover {
+      background-color: #00937a;
+    }
+    .bureaux-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      max-width: 1100px;
+      margin: 0 auto 40px;
+    }
+    .bureau-item {
+      background: white;
+      border: 1px solid #e0e0e0;
+      padding: 25px 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      transition: transform 0.2s ease;
+    }
+    .bureau-item:hover {
+      transform: translateY(-5px);
+    }
+    .bureau-item h3 {
+      margin-top: 0;
+      font-size: 1.3rem;
+      color: #00695c;
+    }
+    .bureau-item p {
+      margin: 6px 0;
+      color: #555;
+    }
+    .btn-localiser,
+    .btn-contact {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 10px 16px;
+      background: #00695c;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 600;
+      transition: background-color 0.3s;
+      margin-right: 10px;
+    }
+    .btn-localiser:hover,
+    .btn-contact:hover {
+      background: #004d40;
+    }
+    .horaires {
+      text-align: center;
+      font-style: italic;
+      color: #777;
+      font-size: 0.95rem;
+    }
+    #map {
+      height: 400px;
+      width: 100%;
+      max-width: 1000px;
+     margin: 0 auto ;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .bureaux-list {
+  margin-top: 10px !important; /* réduit l’espace entre la carte et les blocs */
+  padding-top: 0 !important;
+}
+.bureau-item p a[href^="mailto:"] {
+  color: #00695c !important; /* Couleur Mamda */
+  text-decoration: none !important;
+  font-weight: 500;
+}
+
+.bureau-item p a[href^="mailto:"]:hover {
+  color: #004d40 !important;
+  text-decoration: underline !important;
+}
+
+
+
+  </style>
+</head>
+<body>
+  <section class="bureaux-section">
+    <div class="container">
+      <h2 class="bureaux-title">Notre réseau de bureaux directs</h2>
+      <p class="bureaux-intro">
+        Avec plus de 50 bureaux répartis à travers le pays, trouvez facilement l’agence la plus proche.
+      </p>
+
+      <div class="bureaux-search">
+        <input type="text" id="ville-input" placeholder="Rechercher par ville, adresse ou téléphone...">
+        <button id="btn-search">Rechercher</button>
+      </div>
+      <div id="map" style="height: 400px; border-radius: 10px; margin-bottom: 30px;"></div>
+
+    <div class="bureaux-list"></div>
+    <p class="horaires">Horaires d’ouverture : 8h00 – 16h15 du Lundi au Vendredi</p>
+    </div>
+  </section>
+
+
+
+
+  <script>
+  let data = [];
+
+  async function init() {
+    try {
+      const res = await fetch('bureaux.json'); // Important : fichier local ou en ligne
+      data = await res.json();
+      afficheBureaux();
+      initMap();
+    } catch (e) {
+      console.error("Erreur lors du chargement de bureaux.json :", e);
+    }
+  }
+
+  async function init() {
+    try {
+      const res = await fetch('bureaux.json');
+      data = await res.json();
+      console.log(data); // voir si les données arrivent bien
+      afficheBureaux();
+      initMap();
+    } catch (e) {
+      console.error("Erreur lors du chargement de bureaux.json :", e);
+    }
+  }
+
+  function afficheBureaux(recherche = '') {
+    const cont = document.querySelector('.bureaux-list');
+    cont.innerHTML = '';
+    const list = recherche === '' ? data : data.filter(b =>
+      Object.values(b).some(val => typeof val === 'string' && val.toLowerCase().includes(recherche.toLowerCase()))
+    );
+    list.forEach(b => {
+      cont.innerHTML += `
+        <div class="bureau-item">
+          <h3>${b.ville}</h3>
+          <p>${b.adresse}</p>
+          <p><strong>Tél:</strong> ${b.tel}</p>
+          <p><strong>Email:</strong> <a href="mailto:${b.email}">${b.email}</a></p>
+          <a class="btn-localiser" href="https://maps.google.com?q=${encodeURIComponent(b.adresse + ' ' + b.ville)}" target="_blank">Localiser</a>
+          <a class="btn-contact" href="https://wa.me/212${b.tel.replace(/\s/g,'')}" target="_blank">WhatsApp</a>
+        </div>`;
+    });
+  }
+
+  async function init() {
+    const res = await fetch('bureaux.json');
+    data = await res.json();
+    afficheBureaux();
+    initMap(); // on appelle ici la carte
+  }
+
+  function initMap() {
+  const map = L.map('map').setView([32.0, -6.5], 6); // centre Maroc
+
+  // Ajouter fond de carte
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap'
+  }).addTo(map);
+
+  // Ajouter les marqueurs des bureaux
+  data.forEach(b => {
+    L.marker([b.lat, b.lng])
+      .addTo(map)
+      .bindPopup(`<b>${b.ville}</b><br>${b.adresse}`);
+  });
+}
+
+
+  document.getElementById('btn-search').addEventListener('click', () => {
+    afficheBureaux(document.getElementById('ville-input').value);
+  });
+
+  document.getElementById('ville-input').addEventListener('input', () => {
+    afficheBureaux(document.getElementById('ville-input').value);
+  });
+
+  init();
+
+  function initMap() {
+    const map = L.map('map').setView([32.0, -6.5], 6); // centre du Maroc, zoom 6
+
+    // fond de carte (grâce à OpenStreetMap)
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap'
+    }).addTo(map);
+
+    // ajout des marqueurs pour chaque agence Mamda
+    data.forEach(b => {
+      L.marker([b.lat, b.lng])
+        .addTo(map)
+        .bindPopup(`<b>${b.ville}</b><br>${b.adresse}`);
+    });
+  }
+</script>
+
+
+</body>
+</html>
+

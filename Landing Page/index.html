@@ -1,0 +1,2629 @@
+<!DOCTYPE html> 
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mamda | MCMA Safi</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Lien vers Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <a href="bureau.html">Bureaux directs</a>
+
+
+  
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+   /* === GLOBAL === */
+  body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f7fff8;
+      color: #1e3d2f;
+      padding-top: 80px;
+    }
+   /* HEADER MODIFIÉ - plus transparent */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.00); /* Très très léger fond sombre */
+  backdrop-filter: blur(6px); /* petit flou derrière pour lisibilité */
+  -webkit-backdrop-filter: blur(6px); /* compatibilité Safari */
+  z-index: 1000;
+  color: white;
+  text-shadow: none; /* on enlève l'ombre pour plus de clarté */
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+
+
+/* IMAGE DU LOGO */
+header img {
+  height: 90px;
+}
+
+/* HEADER plus transparent */
+header {
+  background: rgba(0, 0, 0, 0.3); /* plus clair */
+  backdrop-filter: blur(10px);
+  color: white;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+}
+
+/* Search wrapper */
+.search-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* Bouton de recherche */
+.search-toggle {
+  background: transparent;
+  border: none;
+  color: rgb(176, 175, 175);
+  font-size: 1.4rem;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  transition: color 0.3s, background-color 0.3s, transform 0.3s;
+}
+
+/* Effet au hover / touch */
+.search-toggle:hover {
+ 
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: scale(1.1);
+}
+
+/* Champ de recherche (initialement caché si tu veux) */
+.search-input {
+  margin-left: 0.5rem;
+  padding: 6px 10px;
+  border: none;
+  border-radius: 20px;
+  font-size: 1rem;
+  display: block;
+}
+
+
+
+
+
+
+
+main {
+  margin-top: 100px; /* ajuste selon la hauteur exacte de ton header */
+}
+
+
+    header img {
+      height: 90px;
+    }
+    section {
+      padding: 3rem 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .section {
+      max-width: 1100px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+    .text {
+      flex: 1;
+      min-width: 280px;
+    }
+    .text h2 {
+      color: #1e3d2f;
+    }
+    .text p {
+      font-size: 1.1rem;
+    }
+    .text button {
+      background: linear-gradient(45deg,rgb(3, 132, 50));
+      border: none;
+      padding: 12px 25px;
+      font-size: 1.1rem;
+      margin-top: 1rem;
+      cursor: pointer;
+      border-radius: 25px;
+      color: white;
+      box-shadow: 0 5px 12px rgba(50, 120, 40, 0.6);
+      transition: background 0.4s ease;
+    }
+    .text button:hover {
+      background: linear-gradient(45deg,rgb(33, 130, 26), #af4c68);
+    }
+    .image {
+      flex: 1;
+      min-width: 280px;
+    }
+    .image img {
+      max-width: 500px;
+      width: 100%;
+      border-radius: 10px;
+      transition: opacity 1s ease;
+      display: block;
+    }
+    footer {
+      background-color: #1e3d2f;
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+    }
+    nav ul.menu {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul.menu li {
+      position: relative;
+    }
+    nav ul.menu a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav ul.menu a:hover {
+      color:rgb(49, 130, 26);
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: white;
+      top: 100%;
+      left: 0;
+      min-width: 200px;
+      box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+      border-radius: 6px;
+      z-index: 999;
+    }
+    .dropdown-content a {
+      color: #1e3d2f;
+      padding: 12px 20px;
+      display: block;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    .dropdown-content a:hover {
+      background-color: #e9f5ed;
+      color: #007b33;
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+    .menu-select {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .menu-select select {
+      background-color: #e0e2e2;
+      color: white;
+      padding: 8px 12px;
+      font-weight: bold;
+      
+      font-size: 1rem;
+      
+     
+      transition: background-color 0.3s, color 0.3s;
+    }
+    .menu-select select:hover {
+      color: #af4c8e;
+    }
+    .menu-select select:focus {
+      outline: none;
+    }
+    .menu-select a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1rem;
+      padding: 8px 12px;
+      transition: color 0.3s;
+    }
+    .menu-select a:hover {
+      color: #821a48;
+    }
+
+
+
+
+
+
+
+
+
+
+
+    
+    .hamburger-btn {
+      width: 50px;
+      height: 50px;
+      border: 2px solid white;
+      border-radius: 50%;
+      background: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: transform 0.3s;
+      position: relative;
+    }
+    .hamburger-btn .bar {
+      width: 25px;
+      height: 3px;
+      background-color: white;
+      margin: 4px 0;
+      transition: 0.4s;
+    }
+    .menu-button {
+      background-color: transparent;
+      border: none;
+      color: white;
+      font-size: 1.2rem;
+      font-weight: bold;
+      cursor: pointer;
+      padding: 10px 15px;
+    }
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 60px;
+      right: 20px;
+      background-color: #921984;
+      border-radius: 6px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      z-index: 999;
+    }
+    .dropdown-menu ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .dropdown-menu li {
+      padding: 12px 20px;
+      color: white;
+      border-bottom: 1px solid #ffffff22;
+      cursor: pointer;
+    }
+    .dropdown-menu li:hover {
+      background-color: #4c0752;
+    }
+    .dropdown-menu li:last-child {
+      border-bottom: none;
+    }
+    .devis-section {
+  background-color: rgb(4, 90, 76); /* couleur turquoise professionnelle */
+  padding: 3rem 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.devis-container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1100px;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  color: white;
+  gap: 2rem;
+}
+
+.devis-text {
+  flex: 1;
+  min-width: 260px;
+}
+
+.devis-text h2 {
+  font-size: 1.8rem;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.devis-text p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: white;
+}
+
+.devis-button {
+  background-color: white;
+  color: #1e3d2f;
+  padding: 0.9rem 1.8rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: background-color 0.3s ease;
+}
+
+.devis-button:hover {
+  background-color: #e9f5ed;
+}
+.devis-button {
+  background-color: white;
+  color: #1e3d2f;
+  padding: 14px 28px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.4s;
+  position: relative;
+  overflow: hidden;
+}
+
+.devis-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  background-color: #e9f5ed;
+}
+
+.devis-button span {
+  position: relative;
+  z-index: 1;
+}
+
+.devis-button::before {
+  content: "";
+  position: absolute;
+  left: -100%;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.2), rgba(255,255,255,0));
+  transition: left 0.5s ease;
+  z-index: 0;
+}
+
+.devis-button:hover::before {
+  left: 100%;
+}
+.devis-button {
+  background: linear-gradient(45deg, #4caf50, #357a38);
+  border: none;
+  padding: 12px 25px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  border-radius: 25px;
+  color: white;
+  font-weight: bold;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  box-shadow: 0 5px 12px rgba(50, 120, 40, 0.6);
+  transition: background 0.4s ease;
+}
+
+.devis-button:hover {
+  background: linear-gradient(45deg, #357a38, #4caf50);
+}
+ body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background-color: #f4f8f5;
+    }
+
+ .titre-container {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.produits-titre2 {
+  font-size: 1.5rem;
+  color: #0c3825;
+  margin-bottom: 10px;
+  font-weight: normal;
+  display:block ;
+}
+
+.produits-titre2 span {
+  display: inline-block;
+  color: #8b0055;
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.section-soustitre {
+  font-size: 1.1rem;
+  color: #333;
+  max-width: 900px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+.titre-container {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.produits-titre {
+  font-size: 2rem;
+  color: #0b3710;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.produits-titre span {
+  display: block;
+  font-size: 1.5rem;
+  color: #0c3825;
+  font-weight: normal;
+  margin-top: 5px;
+}
+
+.section-soustitre {
+  font-size: 1.1rem;
+  color: #333;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+
+  
+
+   
+
+    
+
+    
+
+    .produits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .carte-produit {
+      background-color: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .carte-produit:hover {
+      transform: translateY(-5px);
+    }
+
+    .carte-produit img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .carte-produit h3 {
+      margin: 15px 0;
+      font-size: 1.1rem;
+      color: #1c1c1c;
+    }
+
+    .carte-texte {
+      padding: 1rem;
+      text-align: left;
+    }
+
+    .carte-texte h3 {
+      font-size: 1.1rem;
+      margin-top: 0.5rem;
+      font-weight: bold;
+    }
+
+    .barre-verte {
+      width: 20px;
+      height: 4px;
+      background-color: #00c08b;
+      margin-bottom: 0.3rem;
+    }  
+  body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background-color: #f4f8f5;
+}
+
+.produits-section {
+  padding: 60px 20px;
+  background-color: #f4f8f5;
+}
+
+.titre-container {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.produits-titre {
+  font-size: 2rem;
+  color: #052d03;
+  font-weight: bold;
+}
+
+.section-soustitre {
+  font-size: 1.1rem;
+  color: #333;
+  max-width: 900px;
+  margin: 0 auto;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.produits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.carte-produit {
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.carte-produit:hover {
+  transform: translateY(-5px);
+}
+
+.carte-produit img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+.carte-produit:hover img {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+.carte-texte {
+  padding: 1rem;
+  text-align: left;
+}
+
+.carte-texte h3 {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #1c1c1c;
+  margin: 0.5rem 0;
+}
+
+.barre-verte {
+  width: 20px;
+  height: 4px;
+  background-color: #00c08b;
+  margin-bottom: 0.3rem;
+}
+
+/* texte caché au début */
+.texte-cache {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.4s ease, max-height 0.4s ease;
+  color: #444;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-top: 10px;
+}
+
+/* Affichage au hover */
+.carte-produit:hover .texte-cache {
+  opacity: 1;
+  max-height: 200px;
+}
+/* Sur mobile (simulation hover) */
+@media (hover: none) {
+  .carte-produit.hover-mobile .texte-cache {
+    opacity: 1;
+    max-height: 200px;
+  }
+}
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background-color: #f4f8f5;
+}
+
+.produits-section {
+  padding: 60px 20px;
+  background-color: #f4f8f5;
+}
+
+.titre-container {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.produits-titre {
+  font-size: 2rem;
+  color: #8b0055;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.produits-titre .trait-rose {
+  display: inline-block;
+  width: 30px;
+  height: 2px;
+  background-color: #053d18;
+  margin: 0 10px;
+  vertical-align: middle;
+}
+
+.produits-titre strong {
+  display: normal;
+  font-size: 1.2rem;
+  margin-top: 5px;
+  color: #03381f;
+}
+
+.section-soustitre {
+  font-size: 1.1rem;
+  color: #333;
+  max-width: 900px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.produits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.carte-produit {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  text-align: left;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.carte-produit:hover {
+  transform: translateY(-5px);
+}
+
+.carte-produit img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+.carte-produit:hover img {
+  transform: scale(1.05);
+  filter: brightness(1.1);
+}
+
+/* Texte en superposition depuis data-message */
+.carte-produit::after {
+  content: attr(data-message);
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent 40%);
+  color: white;
+  font-size: 1rem;
+  padding: 20px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  white-space: pre-line;
+  z-index: 1;
+}
+
+/* + en bas à droite */
+.carte-produit::before {
+  content: "+";
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  background-color: rgba(255, 255, 255, 0.3);
+  color: white;
+  font-size: 1.4rem;
+  font-weight: bold;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 10px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 2;
+}
+
+/* Affichage texte et + au hover */
+.carte-produit:hover::after,
+.carte-produit:hover::before,
+.carte-produit.touch::after,
+.carte-produit.touch::before {
+  opacity: 1;
+}
+
+/* Facultatif : prise en charge mobile (toucher) */
+@media (hover: none) {
+  .carte-produit.touch::after,
+  .carte-produit.touch::before {
+    opacity: 1;
+  }
+}
+
+
+.carte-texte {
+  padding: 1rem;
+  text-align: left;
+}
+
+.carte-texte h3 {
+  font-size: 1.1rem;
+  margin-top: 0.5rem;
+  font-weight: bold;
+  color: #1c1c1c;
+}
+
+.barre-verte {
+  width: 20px;
+  height: 4px;
+  background-color: #00c08b;
+  margin-bottom: 0.3rem;
+}
+
+.texte-cache {
+  display: none;
+  margin-top: 10px;
+  color: #444;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  animation: fadeIn 0.4s ease;
+}
+
+.carte-produit.active .texte-cache {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.newsletter-section {
+  background: linear-gradient(135deg, #0c3825 0%, #1abc9c 100%);
+  color: white;
+  padding: 60px 20px;
+  text-align: center;
+  position: relative;
+}
+
+.newsletter-container {
+  max-width: 1000px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.newsletter-text h2 {
+  font-size: 32px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.newsletter-text span {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.newsletter-text p {
+  margin-top: 10px;
+  font-size: 16px;
+  max-width: 400px;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.newsletter-form input {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  width: 250px;
+  font-size: 14px;
+}
+
+.newsletter-form button {
+  background-color: #9b1455;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.newsletter-form button:hover {
+  background-color: #7d1044;
+}
+.devis-section {
+  background-color: #0c3825;
+  padding: 3rem 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.devis-container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1100px;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  color: white;
+  gap: 2rem;
+}
+
+.devis-text {
+  flex: 1;
+  min-width: 260px;
+}
+
+.devis-text h2 {
+  font-size: 1.8rem;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.devis-text p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: white;
+}
+
+.devis-button {
+  background: linear-gradient(45deg, #4caf50, #357a38);
+  border: none;
+  padding: 12px 25px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  border-radius: 25px;
+  color: white;
+  font-weight: bold;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  box-shadow: 0 5px 12px rgba(50, 120, 40, 0.6);
+  transition: background 0.4s ease, transform 0.3s ease;
+}
+
+.devis-button:hover {
+  background: linear-gradient(45deg, #357a38, #4caf50);
+  transform: translateY(-2px);
+}
+
+.devis-button svg {
+  margin-left: 8px;
+}
+.footer {
+  background-color: #191a19;
+  color: white;
+  font-family: 'Segoe UI', sans-serif;
+  padding: 40px 20px 20px;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+  border-bottom: 1px solid #444;
+  padding-bottom: 30px;
+}
+
+.footer-left, .footer-middle, .footer-right {
+  flex: 1 1 300px;
+}
+
+.footer-logo {
+  max-width: 160px;
+  margin-bottom: 15px;
+}
+
+.footer-description {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #eee;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  color: #f6feff;
+}
+
+.footer-links li {
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.footer-right p, .footer-right i {
+  color: #eff9f7;
+  font-size: 14px;
+}
+
+.contact-section i {
+  margin-right: 8px;
+}
+
+.social-links a {
+  margin-left: 10px;
+  color: #00d2b0;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.footer-bottom {
+  text-align: center;
+  font-size: 13px;
+  margin-top: 20px;
+  color: #ccc;
+}
+
+.footer-bottom a {
+  color: #00d2b0;
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+  html {
+    scroll-behavior: smooth;
+  }
+  .actus-grid {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 40px auto;
+}
+
+.actu-carte {
+  position: relative;
+  width: 500px;
+  height: 300px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.actu-carte img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(65, 190, 119, 0.504);
+  color: #fff;
+  padding: 30px;
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.overlay h3 {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.overlay p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  max-width: 90%;
+}
+
+.overlay button {
+  background-color: #00e0a0;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.actu-carte:hover .overlay {
+  opacity: 1;
+}
+
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      width: 100%;
+      height: 100%;
+      font-family: Arial, sans-serif;
+     
+    }
+
+    .slider {
+      position: relative;
+      width: 100%;
+      height: 70vh; /* Hauteur réduite */
+    }
+
+    .slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .slide.active {
+      opacity: 1;
+      z-index: 1;
+    }
+
+    .content {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 20px 30px;
+      text-align: center;
+      color: white;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+      max-width: 450px;
+    }
+
+    .content h2 {
+      font-size: 26px;
+      margin-bottom: 15px;
+    }
+
+    .content p {
+      font-size: 15px;
+      margin-bottom: 20px;
+    }
+
+    .content button {
+      background-color: #00e0b6;
+      color: white;
+      border: none;
+      padding: 10px 22px;
+      font-size: 14px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .content button:hover {
+      background-color: #00c8a4;
+    }
+
+
+  .search-wrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+
+  .search-input {
+    width: 0;
+    opacity: 0;
+    transition: width 0.4s ease, opacity 0.4s ease;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid white;
+     color: rgba(255, 255, 255, 0.6);
+    margin-left: 10px;
+    font-size: 14px;
+    padding: 2px 5px;
+  }
+
+  .search-wrapper.active .search-input {
+    width: 150px;
+    opacity: 1;
+  }
+
+  .search-toggle {
+    background: none;
+    border: none;
+     color: rgba(255, 255, 255, 0.6);
+    font-size: 18px;
+    cursor: pointer;
+  }
+
+  .search-input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+
+
+
+
+
+
+/* Style menu déroulant MON ESPACE */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.menu-link {
+  
+ color: white;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 10px 15px;
+  display: inline-block;
+  transition: color 0.3s ease;
+}
+
+.dropdown:hover .menu-link {
+  color: #4CAF50; /* Couleur verte au survol */
+}
+
+.dropdown-content {
+ 
+  
+  top: 100%;
+  left: 0;
+  display: none;
+  position: absolute;
+  background-color: rgba(147, 146, 146, 0.859);
+  min-width: 180px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  z-index: 1001;
+  border-radius: 6px;
+  overflow: hidden;
+  
+  z-index: 999;
+  padding: 0.5rem 0;
+}
+
+.dropdown-content a {
+  color: #1e3d2f;
+  padding: 12px 20px;
+  display: block;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+
+
+
+
+
+.menu-link i {
+  margin-left: 3px;
+  font-size: 0.7rem;
+  transition: color 0.3s ease;
+}
+
+.dropdown:hover .menu-link i {
+  color: #4CAF50;
+}
+
+
+
+
+
+
+.slider {
+  position: relative;
+  width: 100%;
+  height: 70vh;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.slide.active {
+  opacity: 1;
+  z-index: 1;
+}
+.bureau-item p a[href^="mailto:"] {
+  all: unset; /* Supprime tous les styles par défaut */
+  color: #00695c !important; /* Vert foncé Mamda */
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.bureau-item p a[href^="mailto:"]:hover {
+  text-decoration: underline;
+  color: #004d40;
+}
+
+
+
+
+
+
+
+
+
+
+body > a[href="bureau.html"],
+body > a[href="nos-produits.html"] {
+  display: none !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ .produits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .carte-produit {
+      background-color: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .carte-produit:hover {
+      transform: translateY(-5px);
+    }
+
+    .carte-produit img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .carte-produit h3 {
+      margin: 15px 0;
+      font-size: 1.1rem;
+      color: #1c1c1c;
+    }
+
+    .carte-texte {
+      padding: 1rem;
+      text-align: left;
+    }
+
+    .carte-texte h3 {
+      font-size: 1.1rem;
+      margin-top: 0.5rem;
+      font-weight: bold;
+    }
+
+    .barre-verte {
+      width: 20px;
+      height: 4px;
+      background-color: #00c08b;
+      margin-bottom: 0.3rem;
+    }  
+  body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background-color: #f4f8f5;
+}
+
+
+/* --- SECTION PRODUITS PREMIUM GLASS STYLE --- */
+body {
+  background: #ecf2f0;
+  font-family: 'Inter', sans-serif;
+}
+
+.produits-section {
+  padding: 100px 20px;
+  background: linear-gradient(180deg, #f6fdf9 0%, #eaf4ef 100%);
+}
+
+.titre-container {
+  text-align: center;
+ margin-bottom: 60px;
+}
+
+.produits-titre {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #165a12;
+  letter-spacing: -1px;
+}
+
+.produits-titre span {
+  color: #1a2e28;
+}
+
+.section-soustitre {
+  color: #5c5c5c;
+  font-size: 1.15rem;
+  max-width: 850px;
+  margin: 10px auto 0;
+  line-height: 1.7;
+}
+
+.produits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* --- CARTE PRODUIT GLASS --- */
+.carte-produit {
+  position: relative;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid rgba(200, 200, 200, 0.2);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.carte-produit:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.1);
+}
+
+.carte-produit img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  transition: transform 0.4s ease-in-out;
+}
+
+.carte-produit:hover img {
+  transform: scale(1.05);
+}
+
+.carte-texte {
+  padding: 20px;
+  text-align: center;
+}
+
+.barre-verte {
+  width: 40px;
+  height: 3px;
+  background-color: #4caf50;
+  margin: 0 auto 12px;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+.carte-produit:hover .barre-verte {
+  width: 70px;
+}
+
+.carte-texte h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #2a2a2a;
+  transition: color 0.3s ease;
+}
+
+.carte-produit:hover .carte-texte h3 {
+  color: #4caf50;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.avantages-section {
+  padding: 80px 20px;
+  background-color: #f5f9f7;
+  font-family: 'Poppins', sans-serif;
+}
+
+
+.avantages-titre-container {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.avantages-titre {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #1a2e28;
+  letter-spacing: -1px;
+}
+
+.avantages-titre span {
+  color:  #165a12;
+}
+
+.avantages-soustitre {
+  color: #5c5c5c;
+  font-size: 1.15rem;
+  max-width: 850px;
+  margin: 10px auto 0;
+  line-height: 1.7;
+}
+
+
+.avantages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.avantage-carte {
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.avantage-carte img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+  border-radius: 15px;
+}
+
+.avantage-carte:hover img {
+  transform: scale(1.05);
+}
+
+.avantage-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(109, 165, 109, 0.8));
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  padding: 25px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  border-radius: 15px;
+}
+
+.avantage-carte:hover .avantage-overlay {
+  opacity: 1;
+}
+
+.avantage-contenu h3 {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.avantage-contenu p {
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+header nav ul li a {
+  color: white;
+  transition: color 0.3s ease;
+}
+
+header nav ul li a:hover {
+  color: #821a48;
+}
+header a {
+  color: rgb(125, 122, 124);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+header a:hover {
+  color: #821a48;
+}
+
+
+header nav a {
+  color: white !important;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+header nav a:hover {
+  color:rgb(31, 80, 20) !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Search container */
+.search-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Search icon */
+.search-toggle {
+  font-size: 1.4rem;
+  color: white;
+  padding: 8px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, transform 0.3s;
+}
+
+/* Hover effect */
+.search-wrapper:hover .search-toggle {
+  color:rgb(128, 132, 130);
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: scale(1.1);
+}
+
+/* Search input field - hidden by default */
+.search-input {
+  width: 0;
+  opacity: 0;
+  padding: 6px 0;
+  border: none;
+  border-radius: 20px;
+  font-size: 1rem;
+  background-color: rgb(190, 191, 190);
+  color: black;
+  transition: width 0.4s ease, opacity 0.4s ease, padding 0.3s;
+  pointer-events: none;
+}
+
+/* Show input on hover */
+.search-wrapper:hover .search-input {
+  width: 180px;
+  opacity: 1;
+  padding: 6px 12px;
+  pointer-events: auto;
+}
+
+
+
+
+
+
+.legal-links {
+  background-color: #020906;
+  padding: 20px 10px;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.legal-links a {
+  color: #f0f0f0;
+  font-size: 14px;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.legal-links a:hover {
+  color: #00d2b0; /* effet dynamique au survol */
+  text-decoration: underline;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.section-pourquoi {
+  background-color: #f0f7f3;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.titre-section {
+  max-width: 750px;
+  margin: 0 auto 40px;
+}
+
+.titre-section h2 {
+  font-size: 2.5em;
+  font-weight: bold;
+  color: #104d3f;
+  margin-bottom: 15px;
+}
+
+.titre-section h2 span {
+  color: #104d3f;
+}
+
+.titre-section .desc {
+  color: #333;
+  font-size: 1.1em;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.card-pourquoi {
+  background-color: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+  padding: 30px 20px;
+  width: 300px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-pourquoi:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.card-pourquoi img {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 15px;
+}
+
+.card-pourquoi h3 {
+  font-size: 1.3em;
+  color: #104d3f;
+  margin-bottom: 10px;
+}
+
+.card-pourquoi p {
+  font-size: 0.95em;
+  color: #444;
+  line-height: 1.5;
+}
+
+
+
+
+
+
+
+
+
+.plus-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: whitesmoke; /* rose foncé */
+  color: rgb(41, 181, 9);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  z-index: 5;
+}
+
+/* Hover: zoom léger + changement de couleur */
+.plus-icon:hover {
+  background-color: #1e3d2f; /* vert foncé */
+  color: #07340b;
+  transform: scale(1.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.avis-section {
+  background-color: #f6f8f9;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.avis-title {
+  color: #0b480c;
+  font-size: 32px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.avis-subtitle {
+  color: #7f8c8d;
+  font-size: 16px;
+  margin-bottom: 40px;
+}
+
+.avis-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.avis-card {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  width: 320px;
+  padding: 20px;
+  text-align: left;
+  transition: transform 0.3s ease;
+}
+
+.avis-card:hover {
+  transform: translateY(-5px);
+}
+
+.avis-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.avis-photo {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #3498db;
+}
+
+.avis-role {
+  font-size: 13px;
+  color: #888;
+  margin: 0;
+}
+
+.avis-stars {
+  color: #f1c40f;
+  font-size: 16px;
+}
+
+.avis-text {
+  font-style: italic;
+  font-size: 14px;
+  color: #2c3e50;
+}
+
+
+
+  </style>
+</head>
+<body>
+
+<header>
+  
+  
+  <img src="logo-mamda-mcma.png" alt="Logo Mamda-MCMA" class="logo" />
+
+
+
+<nav class="menu-select">
+   
+
+
+   
+
+
+<div class="dropdown">
+  <a href="#" class="menu-link">MON ESPACE</a>
+  <div class="dropdown-content">
+    <a href="gestion-sinistres.html">Gestion des Sinistres</a>
+    <a href="paiment.html">Paiement en ligne</a>
+    <a href="postule.html">Nous Rejoindre</a>
+  </div>
+</div>
+<div class="dropdown">
+  <a href="#contact" class="menu-link">CONTACT</a>
+  <div class="dropdown-content">
+    <a href="#">Email</a>
+    <a href="#">Téléphone</a>
+    <a href="#">Localisation</a>
+  </div>
+</div>
+ <div class="search-wrapper">
+  <button class="search-toggle" onclick="toggleSearch()">
+    <i class="fa fa-search"></i>
+  </button>
+  <input type="text" class="search-input" placeholder="Rechercher..." />
+</div>
+
+
+<div class="dropdown">
+  <a href="#" class="menu-link">
+    ☰ Découvrir <i class="fa fa-chevron-down"></i>
+  </a>
+  <div class="dropdown-content">
+    <a href="NOUS.html">Nous??</a>
+    <a href="produits.html">Nos produits</a>
+    <a href="postule.html">offres d'emploi</a>
+    <a href="bureau.html">bureaux directs</a>
+  </div>
+</div>
+
+
+  
+
+  </nav>
+
+    
+</header>
+
+<div class="slider">
+  <!-- Slide 1: Santé -->
+  <div class="slide active" style="background-image: url('sante.jpg');">
+    <div class="content">
+      <h2>MON ESPACE SANTÉ</h2>
+      <p>Nouvel espace santé dédié aux sociétaires. Pour la Maladie de Base et la Maladie Complémentaire</p>
+      <button>EN SAVOIR PLUS</button>
+    </div>
+  </div>
+
+  <!-- Slide 2: Auto -->
+  <div class="slide" style="background-image: url('auto.jpg');">
+    <div class="content">
+      <h2>ASSURANCE AMANE AUTO IMTYAZ</h2>
+      <p>Conduisez en toute tranquillité !</p>
+      <button>EN SAVOIR PLUS</button>
+    </div>
+  </div>
+
+  <!-- Slide 3: Agricole -->
+  <div class="slide" style="background-image: url('agricole.jpg');">
+    <div class="content">
+      <h2>ASSURANCE AGRICOLE</h2>
+      <p>Sécurisez vos cultures et votre production avec notre assurance agricole adaptée aux agriculteurs marocains.</p>
+      <button>EN SAVOIR PLUS</button>
+    </div>
+  </div>
+</div>
+
+
+
+</section>
+</section>
+<section class="devis-section">
+  <div class="devis-container">
+    <div class="devis-text"> 
+  <h2>GESTION DES SINISTRES</h2>
+  <p>Déclarez et suivez vos sinistres en toute simplicité.<br>
+     Notre équipe est à votre écoute pour un accompagnement rapide et efficace.</p>
+</div>
+<a href="gestion-sinistres.html" class="devis-button">
+  GÉRER UN SINISTRE
+
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" viewBox="0 0 24 24" style="margin-left: 8px;">
+    <path d="M3 17.25V21h3.75l11.06-11.06-3.75-3.75L3 17.25zM20.71 7.04a1.003 1.003 0 0 0 0-1.42l-2.34-2.34a1.003 1.003 0 0 0-1.42 0l-1.83 1.83 3.75 3.75 1.84-1.82z"/>
+  </svg>
+</a>
+  </div>
+</section>
+
+<section class="produits-section"> 
+  <div class="titre-container">
+    <h2 class="produits-titre">— DÉCOUVREZ —<br><span>Nos produits et services</span></h2>
+    <p class="section-soustitre">
+      Découvrez une gamme complète de produits et services adaptés à vos besoins : auto, santé, agricole, habitation, etc.
+    </p>
+  </div>
+
+  <div class="produits-grid">
+    <a href="auto.html" class="carte-produit">
+      <img src="AUTOU.jpg" alt="Auto">
+      <div class="carte-texte">
+        <div class="barre-verte"></div>
+        <h3>Auto</h3>
+      </div>
+    </a>
+    <a href="epargne.html" class="carte-produit">
+      <img src="epargne.jpg" alt="Epargne retraite">
+      <div class="carte-texte">
+        <div class="barre-verte"></div>
+        <h3>Epargne retraite</h3>
+      </div>
+    </a>
+    <a href="habitation.html" class="carte-produit">
+  <img src="habitation.jpg" alt="Habitation">
+  <div class="carte-texte">
+    <div class="barre-verte"></div>
+    <h3>Habitation</h3>
+  </div>
+</a>
+
+    <a href="accident.html" class="carte-produit">
+      <img src="accident.jpg" alt="Individuelle accident">
+      <div class="carte-texte">
+        <div class="barre-verte"></div>
+        <h3>Individuelle accident</h3>
+      </div>
+    </a>
+    <a href="civile.html" class="carte-produit">
+      <img src="civile.jpg" alt="Responsabilité civile">
+      <div class="carte-texte">
+        <div class="barre-verte"></div>
+        <h3>Resp. civile</h3>
+      </div>
+    </a>
+    <a href="agricole.html" class="carte-produit">
+      <img src="gric.jpg" alt="Risques Agricoles">
+      <div class="carte-texte">
+        <div class="barre-verte"></div>
+        <h3>Risques Agricoles</h3>
+      </div>
+    </a>
+    <a href="pro.html" class="carte-produit">
+      <img src="pro.jpg" alt="Risques professionnels">
+      <div class="carte-texte">
+        <div class="barre-verte"></div>
+        <h3>Risques professionnels</h3>
+      </div>
+    </a>
+    <a href="sante.html" class="carte-produit">
+      <img src="s.jpg" alt="Santé">
+      <div class="carte-texte">
+        <div class="barre-verte"></div>
+        <h3>Santé</h3>
+      </div>
+    </a>
+  </div>
+</section>
+<section class="devis-section">
+  <div class="devis-container">
+    <div class="devis-text">
+      <h2>PAYER VOTRE ASSURANCE EN LIGNE</h2>
+      <p>Effectuez vos paiements en ligne en toute simplicité, où que vous soyez.
+Profitez d’une plateforme sécurisée, rapide et facile à utiliser.</p>
+    </div>
+    <a href="paiement.html" class="devis-button">
+      PAYER MAINTENANT
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" viewBox="0 0 24 24">
+        <path d="M5 12h14M12 5l7 7-7 7" stroke="white" stroke-width="2" fill="none"/>
+      </svg>
+    </a>
+  </div>
+</section>
+
+ 
+
+  
+
+
+
+
+
+    <section class="avantages-section"> 
+  <div class="avantages-titre-container">
+  <h2 class="avantages-titre">
+    Nos <span>Avantages</span>
+  </h2>
+  <p class="avantages-soustitre">
+    Découvrez les bénéfices uniques de notre assurance : flexibilité, rapidité, service client disponible 24h/24 et bien plus encore.<br>
+    
+Vos mutuelles d’assurances, couvrent l'ensemble des risques liés à tous les secteurs (assurance automobile, assurance habitation, multirisques, industries, commerce) et ciblent toutes les catégories socioprofessionnelles
+  </p>
+</div>
+
+
+  <div class="avantages-grid">
+
+    <!-- Carte 1 -->
+    <div class="avantage-carte">
+      <img src="sinistres.jpg" alt="Gestion des sinistres">
+      <div class="avantage-overlay">
+        <div class="avantage-contenu">
+          <h3>GESTION DES SINISTRES</h3>
+          <p>MAMDA et MCMA mettent à votre disposition plusieurs solutions pour gérer au mieux vos <strong>sinistres auto</strong>.</p>
+          <div class="plus-icon">+</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Carte 2 -->
+    <div class="avantage-carte">
+      <img src="experience.jpg" alt="Expérience mutualiste">
+      <div class="avantage-overlay">
+        <div class="avantage-contenu">
+          <h3>+ PLUS DE 60 ANS D’EXPÉRIENCE MUTUALISTE</h3>
+          <p>Depuis plus de six décennies, MAMDA s’est imposée comme une référence en matière d’assurance mutualiste au Maroc.</p>
+          <div class="plus-icon">+</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Carte 3 -->
+    <div class="avantage-carte">
+      <img src="agricole.jpg" alt="Assurance agricole">
+      <div class="avantage-overlay">
+        <div class="avantage-contenu">
+          <h3>MAMDA, 1ER ASSUREUR DU MONDE AGRICOLE AU MAROC</h3>
+          <p>Pionnière de l’assurance agricole, MAMDA soutient les agriculteurs face aux risques climatiques grâce à des solutions innovantes.</p>
+          <div class="plus-icon">+</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<section class="devis-section">
+  <div class="devis-container">
+    <div class="devis-text">
+      <h2>NOUS REJOINDRE</h2>
+      <p>Envie de rejoindre MAMDA - MCMA ? Découvrez nos métiers et postulez en ligne dès maintenant. <br>
+      Candidature simple & rapide.
+    </div>
+    <a href="postule.html" class="devis-button">
+  CONSULTEZ MAINTENAT
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" viewBox="0 0 24 24" style="margin-left: 8px;">
+    <path d="M3 17.25V21h3.75l11.06-11.06-3.75-3.75L3 17.25zM20.71 7.04a1.003 1.003 0 0 0 0-1.42l-2.34-2.34a1.003 1.003 0 0 0-1.42 0l-1.83 1.83 3.75 3.75 1.84-1.82z"/>
+  </svg>
+</a>
+</section>
+<section class="produits-section">
+  <div class="titre-container">
+    <h2 class="produits-titre">— NOTRE  —<br><span>ACTUALITÉS</span></h2>
+    <p class="section-soustitre">
+      MAMDA MCMA vous accompagne dans votre quotidien avec de nombreux conseils sur des thèmes variés et adaptés à vos besoins en assurance au Maroc.<br>
+      Grâce à une approche basée sur l’écoute, la proximité et la pédagogie, MAMDA-MCMA vous accompagne à chaque étape avec des conseils concrets, adaptés à votre profil et à l’évolution de vos besoins.
+    </p>
+  </div>
+
+  <div class="actus-grid">
+    <div class="actu-carte">
+      <img src="experience.jpg" alt="Guichet libre service">
+      <div class="overlay">
+        <h3>NOUVEAU GUICHET D'ASSURANCE EN LIBRE SERVICE</h3>
+        <p>MAMDA-MCMA affirme sa volonté de digitaliser la souscription et le renouvellement des polices d’assurance auto.</p>
+        <button>EN SAVOIR PLUS</button>
+      </div>
+    </div>
+
+    <div class="actu-carte">
+      <img src="secheresse.jpg" alt="Sécheresse 2022">
+      <div class="overlay">
+        <h3>DISPOSITIF SPÉCIFIQUE FACE À LA SÉCHERESSE 2022</h3>
+        <p>Un dispositif spécial pour accompagner les agriculteurs face à la sécheresse de la campagne agricole 2021-2022.</p>
+        <button>EN SAVOIR PLUS</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<section class="avis-section">
+  <h2 class="avis-title">Ce que disent nos assurés</h2>
+  <p class="avis-subtitle">Découvrez les témoignages de nos clients satisfaits après avoir déclaré un sinistre ou payé en ligne via notre plateforme Mamda | MCMA.</p>
+
+  <div class="avis-container">
+    <div class="avis-card">
+      <div class="avis-header">
+        <img src="assure1.jpg" alt="Client 1" class="avis-photo">
+        <div>
+          <h3>Fouad Benyahia</h3>
+          <p class="avis-role">Client Mamda - Sinistre Auto</p>
+          <div class="avis-stars">★★★★★</div>
+        </div>
+      </div>
+      <p class="avis-text">“J'ai déclaré mon sinistre en ligne, et tout a été traité rapidement. Plateforme efficace et simple à utiliser.”</p>
+    </div>
+
+    <div class="avis-card">
+      <div class="avis-header">
+        <img src="assure2.jpg" alt="Client 2" class="avis-photo">
+        <div>
+          <h3>Salma Ouali</h3>
+          <p class="avis-role">Assurée MCMA - Santé</p>
+          <div class="avis-stars">★★★★☆</div>
+        </div>
+      </div>
+      <p class="avis-text">“Paiement des frais médicaux très rapide après déclaration. Je recommande vraiment leurs services.”</p>
+    </div>
+
+    <div class="avis-card">
+      <div class="avis-header">
+        <img src="assure3.jpg" alt="Client 3" class="avis-photo">
+        <div>
+          <h3>Youssef Amrani</h3>
+          <p class="avis-role">Client Mamda - Habitation</p>
+          <div class="avis-stars">★★★★★</div>
+        </div>
+      </div>
+      <p class="avis-text">“Le service client m’a accompagné jusqu’au remboursement. Très rassurant, surtout dans les moments difficiles.”</p>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<section class="newsletter-section">
+  <div class="newsletter-container">
+    <div class="newsletter-text">
+      <h2>INSCRIPTION<br><span>À LA NEWSLETTER</span></h2>
+      <p>Inscrivez-vous à la newsletter pour recevoir en premier nos actualités</p>
+    </div>
+    <div class="newsletter-form">
+      <input type="email" id="emailInput" placeholder="Email">
+      <button onclick="showConfirmation()">INSCRIPTION</button>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-left">
+      <img src="logo-mamda-mcma.png" alt="logo-mamda-mcma.png" class="footer-logo" />
+      <p class="footer-description">
+        MAMDA et MCMA sont les deux principales et plus anciennes mutuelles d'assurance au Maroc. 
+        Elles proposent toutes deux un large éventail de produits d’assurance automobile, habitation, 
+        épargne et retraite depuis maintenant plus de 60 ans.
+      </p>
+    </div>
+
+    <div class="footer-middle">
+      <ul class="footer-links">
+        <a href="NOUS.html" style="color: white;"><li><strong>➞ QUI SOMMES-NOUS ?</strong></li></a>  
+         
+       <a href="NOUS.html" style="color: white;"><li><strong>➞ OFFRES D'EMPLOIS ?</strong></li></a>
+       <a href="NOUS.html" style="color: white;"><li><strong>➞ NOS PRODUITS ?</strong></li></a>
+       <a href="NOUS.html" style="color: white;"><li><strong>➞ LIENS UTILS</strong></li></a>
+      </ul>
+    </div>
+
+    <div class="footer-right">
+      <div class="contact-section" id="contact">
+      
+        
+     
+       <p><strong>➞ CONTACT</strong></p>
+        <p><i class="fas fa-map-marker-alt"></i> Angle Avenue Mohammed VI et Rue Houmane El Fatouaki, Rabat 10200</p>
+        <p><i class="fas fa-phone-alt"></i> 3113</p>
+      </div>
+      <div class="social-section">
+        <p><strong>➞ SUIVEZ NOUS :</strong></p>
+        <div class="social-links">
+          <div>MAMDA &nbsp;
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+          <div>MCMA &nbsp;
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <section class="legal-links">
+  <a href="mentions-legales.html">Mentions légales</a>
+  <a href="reglementations.html">Informations réglementaires</a>
+  <a href="donnees.html">Données personnelles</a>
+  <a href="accessibilite.html">Accessibilité</a>
+  <a href="cookies.html">Cookies</a>
+  <a href="contact.html">Nous contacter</a>
+  <a href="resiliation.html">Résiliation</a>
+  <a href="reclamation.html">Réclamation / Médiation</a>
+  <a href="recrutement.html">GMF recrute</a>
+  <a href="groupe-covea.html">Le Groupe Covéa</a>
+</section>
+
+
+  <div class="footer-bottom">
+    <p>© 2025 - MAMDA & MCMA. Tous droits réservés • <a href="#">Conditions générales d’utilisation</a> • <a href="#">Plan du site</a> • <a href="#">Site by ...</a></p>
+  </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<footer>
+  <p>&copy; 2025 Mamda | MCMA Safi - Tous droits réservés</p>
+</footer>
+
+<script>
+  // Gestion des sélections des menus déroulants
+  function handleSelection(select) {
+    const url = select.value;
+    if (url && url !== "#") {
+      window.location.href = url;
+    }
+  }
+
+  // Animation fade-in au scroll des sections
+  function handleScrollFadeIn() {
+    const sections = document.querySelectorAll("section");
+    const triggerBottom = window.innerHeight * 0.9;
+    sections.forEach(section => {
+      const top = section.getBoundingClientRect().top;
+      if (top < triggerBottom) {
+        section.classList.add("visible");
+      }
+    });
+  }
+  window.addEventListener("scroll", handleScrollFadeIn);
+  window.addEventListener("load", handleScrollFadeIn);
+
+  // Carrousel images pour chaque section (pas slider principal)
+  const images = {
+    sante: ["sante.jpg", "sante2.jpg", "sante3.jpg"],
+    auto: ["auto.jpg", "auto2.jpg", "auto3.jpg"],
+    agricole: ["agricole.jpg", "agricole2.jpg", "agricole3.jpg"]
+  };
+
+  function startCarousel(sectionSelector, imageArray, interval = 4000) {
+    const section = document.querySelector(sectionSelector);
+    if (!section) return;
+    const imgElement = section.querySelector(".image img");
+    if (!imgElement) return;
+
+    let index = 0;
+    setInterval(() => {
+      index = (index + 1) % imageArray.length;
+      imgElement.style.opacity = 0;
+      setTimeout(() => {
+        imgElement.src = imageArray[index];
+        imgElement.style.opacity = 1;
+      }, 500);
+    }, interval);
+  }
+
+  window.addEventListener("load", () => {
+    // Pour images internes aux sections (pas slider principal)
+    startCarousel("section:nth-of-type(1)", images.sante);
+    startCarousel("section:nth-of-type(2)", images.auto);
+    startCarousel("section:nth-of-type(3)", images.agricole);
+
+    // ➤ Slider principal automatique toutes les 5 secondes
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.remove('active');
+        if (i === index) {
+          slide.classList.add('active');
+        }
+      });
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    setInterval(nextSlide, 3000); // ← ici on lance toutes les 5 secondes
+  });
+
+  // MENU déroulant (mobile ou autres)
+  const menu = document.getElementById("dropdown");
+  const btn = document.getElementById("menuBtn");
+
+  btn?.addEventListener("click", () => {
+    if (menu.style.display === "block") {
+      menu.style.opacity = 1;
+      let fadeEffect = setInterval(() => {
+        if (!menu.style.opacity) {
+          menu.style.opacity = 1;
+        }
+        if (menu.style.opacity > 0) {
+          menu.style.opacity -= 0.1;
+        } else {
+          clearInterval(fadeEffect);
+          menu.style.display = "none";
+        }
+      }, 40);
+    } else {
+      menu.style.display = "block";
+      menu.style.opacity = 0;
+      let fadeInEffect = setInterval(() => {
+        if (menu.style.opacity < 1) {
+          menu.style.opacity = parseFloat(menu.style.opacity) + 0.1;
+        } else {
+          clearInterval(fadeInEffect);
+        }
+      }, 40);
+    }
+  });
+
+  document.querySelectorAll('.carte-produit').forEach(carte => {
+    carte.addEventListener('touchstart', () => {
+      carte.classList.toggle('touch');
+    });
+  });
+
+
+
+  document.addEventListener("click", function(event) {
+    if (!menu?.contains(event.target) && !btn?.contains(event.target)) {
+      if (menu?.style.display === "block") {
+        menu.style.display = "none";
+        menu.style.opacity = 0;
+      }
+    }
+  });
+
+  // Affichage texte caché dans les cartes
+  const cartes = document.querySelectorAll('.carte-produit');
+  cartes.forEach(carte => {
+    const img = carte.querySelector('img');
+    const texteCache = carte.querySelector('.texte-cache');
+    const message = carte.getAttribute('data-message');
+
+    img?.addEventListener('click', () => {
+      carte.classList.toggle('active');
+      texteCache.textContent = carte.classList.contains('active') ? message : '';
+    });
+  });
+
+  function showConfirmation() {
+    const email = document.getElementById("emailInput").value;
+    if (email.trim() === "") {
+      alert("Veuillez entrer votre email.");
+    } else {
+      alert("Merci pour votre inscription !");
+      document.getElementById("emailInput").value = "";
+    }
+  }
+
+  function toggleSearch() {
+    const wrapper = document.querySelector('.search-wrapper');
+    wrapper.classList.toggle('active');
+  }
+
+  const menuBtn = document.querySelector('.menu-button');
+  const dropdown = document.querySelector('.dropdown-menu');
+
+  menuBtn?.addEventListener('click', () => {
+    dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!menuBtn?.contains(e.target) && !dropdown?.contains(e.target)) {
+      dropdown.style.display = 'none';
+    }
+  });
+  
+  
+function toggleSearch() {
+    const input = document.querySelector('.search-input');
+    input.style.display = input.style.display === 'block' ? 'none' : 'block';
+  }
+  window.onload = () => {
+    window.scrollTo(0, 0);
+  };
+</script>
+
+
+</body>
+</html>

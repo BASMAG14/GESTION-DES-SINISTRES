@@ -1,0 +1,122 @@
+[
+  {
+    "ville": "Casablanca",
+    "adresse": "Angle Av des Pléiades et Bd Abdelmoumen",
+    "tel": "0522860125",
+    "email": "casablanca@mamda.mcma.ma",
+    "lat": 33.5899,
+    "lng": -7.6039
+  },
+  {
+    "ville": "Rabat",
+    "adresse": "10 Rue Al Adarissa, Agdal",
+    "tel": "0537770045",
+    "email": "rabat@mamda.mcma.ma",
+    "lat": 34.0209,
+    "lng": -6.8416
+  },
+  {
+    "ville": "Safi",
+    "adresse": "Avenue Zerktouni, Centre Ville",
+    "tel": "0524667788",
+    "email": "safi@mamda.mcma.ma",
+    "lat": 32.2994,
+    "lng": -9.2372
+  },
+  {
+    "ville": "Fès",
+    "adresse": "Avenue Hassan II",
+    "tel": "0535623344",
+    "email": "fes@mamda.mcma.ma",
+    "lat": 34.0331,
+    "lng": -5.0003
+  },
+  {
+    "ville": "Marrakech",
+    "adresse": "Rue Yougoslavie, Gueliz",
+    "tel": "0524432110",
+    "email": "marrakech@mamda.mcma.ma",
+    "lat": 31.6295,
+    "lng": -7.9811
+  },
+  {
+    "ville": "Agadir",
+    "adresse": "Av. Mohamed V",
+    "tel": "0528281122",
+    "email": "agadir@mamda.mcma.ma",
+    "lat": 30.4278,
+    "lng": -9.5981
+  },
+  {
+    "ville": "Tanger",
+    "adresse": "Rue de Fès, Centre Ville",
+    "tel": "0539394040",
+    "email": "tanger@mamda.mcma.ma",
+    "lat": 35.7595,
+    "lng": -5.8339
+  },
+  {
+    "ville": "Tétouan",
+    "adresse": "Bd Mohammed V",
+    "tel": "0539612233",
+    "email": "tetouan@mamda.mcma.ma",
+    "lat": 35.5769,
+    "lng": -5.3684
+  },
+  {
+    "ville": "Oujda",
+    "adresse": "Av. Allal El Fassi",
+    "tel": "0536688899",
+    "email": "oujda@mamda.mcma.ma",
+    "lat": 34.6829,
+    "lng": -1.9091
+  },
+  {
+    "ville": "El Jadida",
+    "adresse": "Av. Mohamed V",
+    "tel": "0523341122",
+    "email": "eljadida@mamda.mcma.ma",
+    "lat": 33.2333,
+    "lng": -8.5000
+  },
+  {
+    "ville": "Meknès",
+    "adresse": "Bd Hassan II",
+    "tel": "0535522233",
+    "email": "meknes@mamda.mcma.ma",
+    "lat": 33.8950,
+    "lng": -5.5547
+  },
+  {
+    "ville": "Khouribga",
+    "adresse": "Rue de Casablanca",
+    "tel": "0523477788",
+    "email": "khouribga@mamda.mcma.ma",
+    "lat": 32.8822,
+    "lng": -6.9063
+  },
+  {
+    "ville": "Laâyoune",
+    "adresse": "Quartier Al Qods",
+    "tel": "0528998877",
+    "email": "laayoune@mamda.mcma.ma",
+    "lat": 27.1500,
+    "lng": -13.2000
+  },
+  {
+    "ville": "Errachidia",
+    "adresse": "Av. Moulay Ismail",
+    "tel": "0533576677",
+    "email": "errachidia@mamda.mcma.ma",
+    "lat": 31.9313,
+    "lng": -4.4246
+  },
+  {
+    "ville": "Beni Mellal",
+    "adresse": "Centre Ville",
+    "tel": "0523488899",
+    "email": "benimellal@mamda.mcma.ma",
+    "lat": 32.3372,
+    "lng": -6.3498
+  }
+]

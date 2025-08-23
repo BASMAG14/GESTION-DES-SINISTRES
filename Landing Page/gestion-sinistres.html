@@ -1,0 +1,1646 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>E-sinistre Mamda | MCMA</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+/* HEADER STYLE — Plus transparent comme demandé */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.20); /* Ultra léger noir pour transparence */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px); /* Pour Safari */
+  z-index: 1000;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  color: white;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+}
+
+/* LOGO */
+.logo {
+  height: 75px;
+}
+
+/* SEARCH INPUT dynamique */
+.search-wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+   margin-left: auto; /* pousse la recherche à droite */
+  gap: 0.5rem;
+}
+.menu-select {
+  display: flex;
+  align-items: center;
+  gap: 25px; /* espace entre chaque élément */
+  flex-wrap: wrap;
+}
+
+
+.search-toggle {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 1.4rem;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 50%;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+/* Quand on touche le bouton, montrer l'input */
+.search-wrapper:hover .search-input {
+  width: 180px;
+  opacity: 1;
+  padding: 6px 12px;
+  pointer-events: auto;
+}
+
+.search-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: scale(1.05);
+}
+
+.search-input {
+  width: 0;
+  opacity: 0;
+  border: none;
+  border-radius: 20px;
+  font-size: 1rem;
+  transition: width 0.4s ease, opacity 0.4s ease, padding 0.3s;
+  background-color: white;
+  color: black;
+  pointer-events: none;
+}
+
+
+
+
+
+
+
+
+
+    .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #c0bfbf;
+  min-width: 180px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  z-index: 1001;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.dropdown-content a {
+  color: #333;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown-content a:hover {
+  background-color: #f0f0f0;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.search-wrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+
+  .search-input {
+    width: 0;
+    opacity: 0;
+    transition: width 0.4s ease, opacity 0.4s ease;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid white;
+    color: white;
+    margin-left: 10px;
+    font-size: 14px;
+    padding: 2px 5px;
+  }
+
+  .search-wrapper.active .search-input {
+    width: 150px;
+    opacity: 1;
+  }
+
+  .search-toggle {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+  }
+.search-input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+  }/* Style menu déroulant MON ESPACE */
+.dropdown {
+  position: relative;
+  display: inline-block;
+  margin-right: 10px; /* espace entre les dropdowns */
+}
+
+.menu-link {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 10px 15px;
+  display: inline-block;
+  transition: color 0.3s ease;
+}
+.menu-link i {
+  margin-left: 3px;
+  font-size: 0.7rem;
+  transition: color 0.3s ease;
+}
+
+.dropdown:hover .menu-link i {
+  color: #4CAF50;
+}
+   
+    @keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.retour-accueil {
+  margin-top: 10px;
+  padding: 0.75rem 2rem;
+  background-color: #f5f5f5;
+  text-align: left;
+}
+
+.btn-retour {
+  color: #006e51;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.btn-retour i {
+  margin-right: 6px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .menu-select {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+
+  .search-wrapper.active .search-input {
+    width: 100%;
+  }
+}
+
+ 
+
+   
+    
+    footer {
+      background-color: #1e3d2f;
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+    }
+    nav ul.menu {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul.menu li {
+      position: relative;
+    }
+    nav ul.menu a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav ul.menu a:hover {
+      color:rgb(49, 130, 26);
+    }
+    
+    
+
+    main {
+      padding: 40px 60px;
+    }
+
+    main h1 {
+      font-size: 36px;
+      color: #007b33;
+      margin-bottom: 10px;
+    }
+
+    main p {
+      font-size: 18px;
+      color: #555;
+    }
+
+    section {
+      padding: 3rem 2rem;
+    }
+    @keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.newsletter-section {
+  background: linear-gradient(135deg, #0c3825 0%, #1abc9c 100%);
+  color: white;
+  padding: 60px 20px;
+  text-align: center;
+  position: relative;
+}
+
+.newsletter-container {
+  max-width: 1000px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.newsletter-text h2 {
+  font-size: 32px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.newsletter-text span {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.newsletter-text p {
+  margin-top: 10px;
+  font-size: 16px;
+  max-width: 400px;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.newsletter-form input {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  width: 250px;
+  font-size: 14px;
+}
+
+.newsletter-form button {
+  background-color: #9b1455;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.newsletter-form button:hover {
+  background-color: #7d1044;
+}
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+  border-bottom: 1px solid #444;
+  padding-bottom: 30px;
+}
+
+.footer-left, .footer-middle, .footer-right {
+  flex: 1 1 300px;
+}
+
+.footer-logo {
+  max-width: 160px;
+  margin-bottom: 15px;
+}
+
+.footer-description {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #eee;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  color: #f6feff;
+}
+
+.footer-links li {
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.footer-right p, .footer-right i {
+  color: #eff9f7;
+  font-size: 14px;
+}
+
+.contact-section i {
+  margin-right: 8px;
+}
+
+.social-links a {
+  margin-left: 10px;
+  color: #00d2b0;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.footer-bottom {
+  text-align: center;
+  font-size: 13px;
+  margin-top: 20px;
+  color: #ccc;
+}
+
+.footer-bottom a {
+  color: #00d2b0;
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+  html {
+    scroll-behavior: smooth;
+  }
+  .actus-grid {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 40px auto;
+}
+
+.actu-carte {
+  position: relative;
+  width: 500px;
+  height: 300px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.actu-carte img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 160, 130, 0.8);
+  color: #fff;
+  padding: 30px;
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.overlay h3 {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.overlay p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  max-width: 90%;
+}
+
+.overlay button {
+  background-color: #00e0a0;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.actu-carte:hover .overlay {
+  opacity: 1;
+}
+
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      width: 100%;
+      height: 100%;
+      font-family: Arial, sans-serif;
+     
+    }
+
+    .slider {
+      position: relative;
+      width: 100%;
+      height: 70vh; /* Hauteur réduite */
+    }
+
+    .slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .slide.active {
+      opacity: 1;
+      z-index: 1;
+    }
+
+    .content {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 20px 30px;
+      text-align: center;
+      color: white;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+      max-width: 450px;
+    }
+
+    .content h2 {
+      font-size: 26px;
+      margin-bottom: 15px;
+    }
+
+    .content p {
+      font-size: 15px;
+      margin-bottom: 20px;
+    }
+
+    .content button {
+      background-color: #00e0b6;
+      color: white;
+      border: none;
+      padding: 10px 22px;
+      font-size: 14px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .content button:hover {
+      background-color: #00c8a4;
+    }
+
+
+  
+
+
+
+
+
+
+
+
+/* Style menu déroulant MON ESPACE */
+.dropdown {
+  position: relative;
+  display: inline-block;
+  margin-right: 10px; /* espace entre les dropdowns */
+}
+
+.menu-link {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 10px 15px;
+  display: inline-block;
+  transition: color 0.3s ease;
+}
+.menu-link {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 10px 15px;
+  display: inline-block;
+  transition: color 0.3s ease;
+}
+.menu-link i {
+  margin-left: 3px;
+  font-size: 0.7rem;
+  transition: color 0.3s ease;
+}
+
+.dropdown:hover .menu-link i {
+  color: #4CAF50;
+}
+footer {
+      background-color: #1e3d2f;
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+    }
+
+
+
+    header nav ul li a {
+  color: white;
+  transition: color 0.3s ease;
+}
+
+header nav ul li a:hover {
+  color: #821a48;
+}
+header a {
+  color: rgb(125, 122, 124);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+header a:hover {
+  color: #0b4a18;
+}
+
+
+
+
+
+
+
+
+header nav a {
+  color: white !important;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+header nav a:hover {
+  color: #31821a !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+.declaration-sinistre-section {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  background-color: #fdfaf9;
+  padding: 50px 20px;
+}
+
+.sinistre-box {
+  background-color: #f2f9f6;
+  border-left: 5px solid #1e3d2f;
+  padding: 30px 20px;
+  border-radius: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.sinistre-icon {
+  font-size: 40px;
+  color: #1e3d2f;
+  margin-right: 20px;
+  flex: 0 0 60px;
+  text-align: center;
+}
+
+.sinistre-content {
+  flex: 1;
+  min-width: 250px;
+}
+
+.sinistre-content h3 {
+  font-size: 20px;
+  color: #007b33;
+  margin-bottom: 10px;
+}
+
+.sinistre-content p,
+.sinistre-content ul {
+  color: #444;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.sinistre-content ul {
+  padding-left: 20px;
+  margin-top: 10px;
+}
+
+.sinistre-action {
+  text-align: right;
+  min-width: 200px;
+  margin-top: 10px;
+}
+
+.sinistre-btn {
+  background-color: #9b1455;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.sinistre-btn:hover {
+  background-color: #7d1044;
+}
+
+.note {
+  font-size: 12px;
+  color: #666;
+  margin-top: 5px;
+}
+.retour-accueil {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.btn-retour {
+  display: inline-block;
+  background-color: #1e3d2f;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.btn-retour:hover {
+  background-color: #155e44;
+}
+
+.btn-retour i {
+  margin-right: 8px;
+}
+
+
+.declaration-sinistre-section {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  background-color: #fdfaf9;
+  padding: 50px 20px;
+}
+
+.sinistre-box {
+  background-color: #f2f9f6;
+  border-left: 5px solid #1e3d2f;
+  padding: 30px 20px;
+  border-radius: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.sinistre-icon {
+  font-size: 40px;
+  color: #1e3d2f;
+  margin-right: 20px;
+  flex: 0 0 60px;
+  text-align: center;
+}
+
+.sinistre-content {
+  flex: 1;
+  min-width: 250px;
+}
+
+.sinistre-content h3 {
+  font-size: 20px;
+  color: #007b33;
+  margin-bottom: 10px;
+}
+
+.sinistre-content p,
+.sinistre-content ul {
+  color: #444;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.sinistre-content ul {
+  padding-left: 20px;
+  margin-top: 10px;
+}
+
+.sinistre-action {
+  text-align: right;
+  min-width: 200px;
+  margin-top: 10px;
+}
+
+.sinistre-btn {
+  background-color: #9b1455;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.sinistre-btn:hover {
+  background-color: #7d1044;
+}
+.timeline-section {
+  background-color: #f9fdfc;
+  padding: 60px 20px;
+  max-width: 1000px;
+  margin: auto;
+  border-radius: 12px;
+}
+.timeline-section h2 {
+  text-align: center;
+  color: #1e3d2f;
+  font-size: 28px;
+  margin-bottom: 40px;
+}
+.timeline-step {
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 40px;
+}
+
+.timeline-step::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 13px;
+  width: 4px;
+  height: 100%;
+  background-color: #d6d6d6;
+}
+
+.timeline-dot {
+  width: 16px;
+  height: 16px;
+  background-color: #007b33;
+  border-radius: 50%;
+  position: absolute;
+  left: 7px;
+  top: 10px;
+}
+
+.timeline-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  flex: 1;
+}
+
+.timeline-content h3 {
+  color: #007b33;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.timeline-content p {
+  font-size: 15px;
+  color: #444;
+  line-height: 1.6;
+}
+
+.temoignage {
+  background-color: #fff;
+  border-left: 4px solid #f28c28;
+  padding: 15px;
+  margin: 20px 0;
+  font-style: italic;
+  color: #334;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+}
+
+.btn-declarer {
+  display: inline-block;
+  margin-top: 10px;
+  background-color: #9b1455;
+  color: white;
+  padding: 12px 24px;
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btn-declarer:hover {
+  background-color: #7d1044;
+}
+
+
+
+.header-banner {
+  position: relative;
+  background-image: url('voiture.jpg'); /* change le chemin si nécessaire */
+  background-size: cover;
+  background-position: center;
+  height: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.header-overlay {
+  background-color: rgba(0, 0, 0, 0.4); /* fondu sombre */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-content {
+  text-align: center;
+  color: white;
+}
+
+.header-content h1 {
+  font-size: 40px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.breadcrumb {
+  font-size: 16px;
+  color: #f0f0f0;
+}
+
+
+
+.legal-links {
+  background-color: #020906;
+  padding: 20px 10px;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.legal-links a {
+  color: #f0f0f0;
+  font-size: 14px;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.legal-links a:hover {
+  color: #00d2b0; /* effet dynamique au survol */
+  text-decoration: underline;
+}
+
+
+
+
+.faq-section {
+  background-color: #f2f9f6;
+  padding: 60px 20px;
+  color: #1e3d2f;
+  scroll-margin-top: 120px;
+}
+
+.faq-section h2 {
+  text-align: center;
+  font-size: 28px;
+  color: #357a38;
+  margin-bottom: 20px;
+}
+
+.faq-intro {
+  text-align: center;
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+.faq-list ul {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.faq-list ul li {
+  list-style: none;
+  padding: 10px 0;
+}
+
+.faq-list a {
+  text-decoration: none;
+  color: #9b1455;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.faq-list a:hover {
+  color: #7d1044;
+}
+
+.faq-answer {
+  max-width: 800px;
+  margin: 40px auto;
+  background: #fff;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.faq-answer h3 {
+  font-size: 20px;
+  color: #007b33;
+  margin-bottom: 10px;
+}
+
+.faq-answer p {
+  font-size: 15px;
+  color: #444;
+  line-height: 1.6;
+}
+.contact-info-section {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  background: #fdfaf9;
+  padding: 50px 30px;
+  border-radius: 16px;
+  max-width: 1200px;
+  margin: 60px auto;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+  flex-wrap: wrap;
+}
+
+.info-box {
+  flex: 1 1 45%;
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+  position: relative;
+}
+
+.icon-wrapper {
+  background-color: #821a48;
+  color: white;
+  font-size: 26px;
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -50px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.info-content h3 {
+  color: #821a48;
+  font-size: 20px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.info-content p {
+  color: #000;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.info-content small {
+  font-size: 13px;
+  color: #555;
+}
+
+.num {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.btn-bureau {
+  margin-top: 10px;
+  display: inline-block;
+  background-color: #20d1a3;
+  color: white;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn-bureau:hover {
+  background-color: #1aa888;
+}
+
+
+
+
+.newsletter-form input {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  width: 250px;
+  min-width: 200px;
+  font-size: 14px;
+  flex: 1 1 auto; /* <-- AJOUT ICI */
+}@media (max-width: 768px) {
+  .newsletter-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .newsletter-form {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .newsletter-form input {
+    width: 80%; /* plus fluide */
+    margin-bottom: 10px;
+  }
+
+  .newsletter-form button {
+    width: 50%;
+  }
+}
+
+
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.newsletter-section {
+  background: linear-gradient(135deg, #0c3825 0%, #1abc9c 100%);
+  color: white;
+  padding: 60px 20px;
+  text-align: center;
+  position: relative;
+}
+
+.newsletter-container {
+  max-width: 1000px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.newsletter-text h2 {
+  font-size: 32px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.newsletter-text span {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.newsletter-text p {
+  margin-top: 10px;
+  font-size: 16px;
+  max-width: 400px;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.newsletter-form input {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  width: 250px;
+  font-size: 14px;
+}
+
+.newsletter-form button {
+  background-color: #9b1455;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.newsletter-form button:hover {
+  background-color: #7d1044;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </style>
+</head>
+
+<body>
+
+  <!-- ✅ HEADER -->
+  <header>
+    <img src="logo-mamda-mcma.png" alt="Logo Mamda-MCMA" class="logo" />
+    <nav class="menu-select">
+      
+
+      <div class="dropdown">
+        <a href="#" class="menu-link">MON ESPACE</a>
+        <div class="dropdown-content">
+          <a href="seconnecter.php">Clients</a>
+          <a href="admin.php">Admin</a>
+        </div>
+      </div>
+
+      <div class="dropdown">
+        <a href="#contact" class="menu-link">CONTACT</a>
+        <div class="dropdown-content">
+          <a href="#">Email</a>
+          <a href="#">Téléphone</a>
+          <a href="#">Localisation</a>
+        </div>
+      </div>
+
+      <div class="search-wrapper">
+        <button class="search-toggle" onclick="toggleSearch()">
+          <i class="fa fa-search"></i>
+        </button>
+        <input type="text" class="search-input" placeholder="Rechercher..." />
+      </div>
+
+      <div class="dropdown">
+        <a href="#" class="menu-link">☰ MENU <i class="fa fa-chevron-down"></i></a>
+        <div class="dropdown-content">
+          <a href="NOUS.html">Qui sommes-nous ?</a>
+          <a href="produits.html">Nos produits</a>
+          <a href="postule.html">Offres d'emploi</a>
+        </div>
+      </div>
+
+    </nav>
+  </header>
+ 
+
+<section>
+
+
+
+
+</section>
+  <!-- ✅ CONTENU -->
+   <section class="header-banner">
+  <div class="header-overlay">
+    <div class="header-content">
+      <h1>GESTION DES SINISTRES</h1>
+      <p class="breadcrumb">
+        <a href="index.html" style="color: white;">ACCEUIL &nbsp;</a>   > &nbsp; GESTION DES SINISTRES
+      </p>
+    </div>
+  </div>
+</section>
+
+
+
+
+  <section class="declaration-sinistre-section">
+  <div class="sinistre-box">
+    <div class="sinistre-icon">
+      <i class="fas fa-laptop"></i>
+    </div>
+    <div class="sinistre-content">
+      <h3>Déclarez un sinistre en ligne 24h/24 et 7j/7</h3>
+      <p><strong>Suite à votre déclaration dans votre espace personnel :</strong></p>
+      <ul>
+        <li>Vous recevrez un accusé par email contenant la référence.</li>
+        <li>Un conseiller vous contactera si nécessaire.</li>
+        <li>En cas d’erreur, il pourra revenir sur vos éléments déclarés.</li>
+      </ul>
+    </div>
+    <div class="sinistre-action">
+      <a href="seconnecter.php" class="sinistre-btn">declarer et suivre  votre sinistre maintenat</a>
+    </div>
+  </div>
+
+  <div class="sinistre-box">
+    <div class="sinistre-icon">
+      <i class="fas fa-phone-alt"></i>
+    </div>
+    <div class="sinistre-content">
+      <h3>Déclarez un sinistre par téléphone</h3>
+      <p>Du lundi au vendredi de 9h à 12h et de 14h à 17h</p>
+      <p> Par WhatsApp en profitant du service Mamda M3ak au numéro 0666 15 15 15 / Mcma M3ak au numéro 0666 16 16 16</p>
+    </div>
+    <div class="sinistre-action">
+      <a href="tel:0970809809" class="sinistre-btn">
+        <i class="fas fa-phone-alt"></i>  3113 
+      </a>
+      <p class="note">Numéro non surtaxé</p>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<section class="declaration-sinistre-section">
+  <div class="sinistre-box">
+    <div class="sinistre-icon">
+      <i class="fas fa-file-alt"></i>
+    </div>
+    <div class="sinistre-content">
+      <h3>Suivre un sinistre en cours</h3>
+      <p><strong>Depuis votre espace personnel :</strong></p>
+      <ul>
+        <li>Consultez les détails de votre déclaration.</li>
+        <li>Transmettez ou consultez les documents liés au dossier.</li>
+        <li>Utilisez la messagerie pour contacter votre gestionnaire.</li>
+      </ul>
+    </div>
+    <div class="sinistre-action">
+      <a href="seconnecter.php" class="sinistre-btn">declarer et suivre  votre sinistre maintenat</a>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+<section class="timeline-section">
+  <h2>En cas de sinistre auto ou habitation...</h2>
+  
+  <div class="timeline-step">
+    <div class="timeline-dot"></div>
+    <div class="timeline-content">
+      <h3>Mettez-vous en sécurité</h3>
+      <p>
+        En cas de sinistre, veillez avant tout à vous protéger et ne prenez pas de risques.<br>
+        Si besoin, prenez toutes les mesures nécessaires afin d’éviter une aggravation des dommages et sécurisez les lieux.<br>
+        Enfin, une fois en sécurité, pensez à prendre des photos et si besoin relevez l’identité et les coordonnées d’éventuels témoins.<br>
+        Ces éléments vous seront utiles pour la déclaration.
+      </p>
+    </div>
+  </div>
+
+  <div class="timeline-step">
+    <div class="timeline-dot"></div>
+    <div class="timeline-content">
+      <h3>Déclarez votre sinistre depuis votre Espace Mamda | MCMA</h3>
+      <p>
+        Vous avez un délai de <strong>5 jours pour déclarer votre sinistre</strong> 
+        <em>(2 jours en cas de vol)</em>.<br>
+        Vous pourrez ensuite suivre votre dossier, transmettre vos pièces justificatives, 
+        et communiquer avec un conseiller directement depuis votre espace personnel.
+      </p>
+      <div class="temoignage">
+        <em>
+          “Malgré un sinistre durant la soirée, j’ai tout de même pu déclarer rapidement grâce à mon espace Mamda.”
+        </em>
+      </div>
+      <a href="seconnecter.php" class="sinistre-btn">declarer et suivre un sinistre </a>
+    </div>
+  </div>
+
+
+
+  <div class="timeline-step">
+    <div class="timeline-dot"></div>
+    <div class="timeline-content">
+      <h3>Indemnisation</h3>
+      <p>
+       En fonction de vos garanties et de la nature de votre sinistre, la GMF détermine si vous êtes éligible à une indemnisation et pourra déclencher la mission d'expertise.
+      </p>
+    </div>
+  </div>
+
+
+  <div class="timeline-step">
+    <div class="timeline-dot"></div>
+    <div class="timeline-content">
+      <h3>Indemnisation et réparation</h3>
+      <p>
+    mamda-mcma m'a mis en relation avec le bon partenaire pour faire mes réparations. Grace à eux, j'ai gagné énormément de temps !
+      </p>
+      <div class="temoignage">
+        <em>
+          “Un expert m'a contacté pour évaluer le montant des réparations.”
+        </em>
+      </div>
+     
+    </div>
+  </div>
+
+</section>
+
+
+
+
+<!-- ✅ SECTION FAQ SINISTRES -->
+<section class="faq-section" id="faq">
+  <h2>FAQ Assistance et Sinistre</h2>
+  <p class="faq-intro">
+    Vous avez encore des questions ? Mamda | MCMA vous apporte les réponses à toutes vos interrogations.
+  </p>
+
+  <div class="faq-list">
+    <ul>
+      <li><a href="#faq1">→ Quel est le numéro d'urgence européen ?</a></li>
+      <li><a href="#faq2">→ Quel numéro pour contacter le SAMU ?</a></li>
+      <li><a href="#faq3">→ Quel est le numéro de la Police-secours ?</a></li>
+      <li><a href="#faq4">→ Que faire en cas de sinistre ?</a></li>
+      <li><a href="#faq5">→ Comment déclarer un sinistre auto ou habitation ?</a></li>
+      <li><a href="#faq6">→ Quand déclarer un sinistre auto ou habitation ?</a></li>
+      <li><a href="#faq7">→ Comment suivre son sinistre ?</a></li>
+      <li><a href="#faq8">→ Comment être remboursé ?</a></li>
+    </ul>
+  </div>
+
+  <div class="faq-answer" id="faq1">
+    <h3>Quel est le numéro d'urgence européen ?</h3>
+    <p>Le 112 est le numéro d'appel d'urgence unique européen. Disponible gratuitement partout dans l'Union européenne.</p>
+  </div>
+
+  <div class="faq-answer" id="faq2">
+    <h3>Quel numéro pour contacter le SAMU ?</h3>
+    <p>Pour les urgences médicales, composez le 15 depuis un téléphone fixe ou mobile.</p>
+  </div>
+
+  <div class="faq-answer" id="faq3">
+    <h3>Quel est le numéro de la Police-secours ?</h3>
+    <p>Pour joindre la police en cas d'urgence, composez le 19.</p>
+  </div>
+
+  <div class="faq-answer" id="faq4">
+    <h3>Que faire en cas de sinistre ?</h3>
+    <p>Mettez-vous en sécurité, prenez des photos et contactez votre assureur dès que possible.</p>
+  </div>
+
+  <div class="faq-answer" id="faq5">
+    <h3>Comment déclarer un sinistre auto ou habitation ?</h3>
+    <p>Depuis votre espace personnel Mamda | MCMA, cliquez sur "Déclarer un sinistre" et suivez les étapes guidées.</p>
+  </div>
+
+  <div class="faq-answer" id="faq6">
+    <h3>Quand déclarer un sinistre auto ou habitation ?</h3>
+    <p>Vous avez 5 jours pour déclarer un sinistre, ou 2 jours en cas de vol.</p>
+  </div>
+
+  <div class="faq-answer" id="faq7">
+    <h3>Comment suivre son sinistre ?</h3>
+    <p>Accédez à votre espace personnel pour voir l’avancement, ajouter des documents ou échanger avec un conseiller.</p>
+  </div>
+
+  <div class="faq-answer" id="faq8">
+    <h3>Comment être remboursé ?</h3>
+    <p>Une fois l’expertise validée, vous serez informé du montant et du mode d’indemnisation prévu selon vos garanties.</p>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+  <section class="contact-info-section">
+  <div class="info-box">
+    <div class="icon-wrapper">
+      <i class="fas fa-phone-alt"></i>
+    </div>
+    <div class="info-content">
+      <h3>QUESTION, INFO ?</h3>
+      <p><strong>Contactez-nous au :</strong> <span class="num">3113</span></p>
+      <small>coût d’une communication locale</small>
+    </div>
+  </div>
+
+  <div class="info-box">
+    <div class="icon-wrapper">
+      <i class="fas fa-map-marker-alt"></i>
+    </div>
+    <div class="info-content">
+      <h3>TROUVER UN BUREAU DIRECT ?</h3>
+      <p>Découvrez notre réseau de plus de 100 bureaux directs.</p>
+      <a href="bureau.html" class="btn-bureau">CHERCHER UN BUREAU <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </div>
+</section>
+
+
+  <section class="newsletter-section">
+  <div class="newsletter-container">
+    <div class="newsletter-text">
+      <h2>INSCRIPTION<br><span>À LA NEWSLETTER</span></h2>
+      <p>Inscrivez-vous à la newsletter pour recevoir en premier nos actualités</p>
+    </div>
+    <div class="newsletter-form">
+      <input type="email" id="emailInput" placeholder="Email">
+      <button onclick="showConfirmation()">INSCRIPTION</button>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-left">
+      <img src="logo-mamda-mcma.png" alt="Mamda MCMA Logo" class="footer-logo" />
+      <p class="footer-description">
+        MAMDA et MCMA sont les deux principales et plus anciennes mutuelles d'assurance au Maroc. 
+        Elles proposent toutes deux un large éventail de produits d’assurance automobile, habitation, 
+        épargne et retraite depuis maintenant plus de 60 ans.
+      </p>
+    </div>
+
+    <div class="footer-middle">
+      <ul class="footer-links">
+        <a href="NOUS.html" style="color: white;"><li><strong>➞ QUI SOMMES-NOUS ?</strong></li></a>  
+         
+       <a href="NOUS.html" style="color: white;"><li><strong>➞ OFFRES D'EMPLOIS ?</strong></li></a>
+       <a href="NOUS.html" style="color: white;"><li><strong>➞ NOS PRODUITS ?</strong></li></a>
+       <a href="NOUS.html" style="color: white;"><li><strong>➞ LIENS UTILS</strong></li></a>
+      </ul>
+    </div>
+
+    <div class="footer-right">
+      <div class="contact-section" id="contact">
+      
+        
+     
+       <p><strong>➞ CONTACT</strong></p>
+        <p><i class="fas fa-map-marker-alt"></i> Angle Avenue Mohammed VI et Rue Houmane El Fatouaki, Rabat 10200</p>
+        <p><i class="fas fa-phone-alt"></i> 3113</p>
+      </div>
+      <div class="social-section">
+        <p><strong>➞ SUIVEZ NOUS :</strong></p>
+        <div class="social-links">
+          <div>MAMDA &nbsp;
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+          <div>MCMA &nbsp;
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <section class="legal-links">
+  <a href="mentions-legales.html">Mentions légales</a>
+  <a href="reglementations.html">Informations réglementaires</a>
+  <a href="donnees.html">Données personnelles</a>
+  <a href="accessibilite.html">Accessibilité</a>
+  <a href="cookies.html">Cookies</a>
+  <a href="contact.html">Nous contacter</a>
+  <a href="resiliation.html">Résiliation</a>
+  <a href="reclamation.html">Réclamation / Médiation</a>
+  <a href="recrutement.html">GMF recrute</a>
+  <a href="groupe-covea.html">Le Groupe Covéa</a>
+</section>
+
+  <div class="footer-bottom">
+    <p>© 2025 - MAMDA & MCMA. Tous droits réservés • <a href="#">Conditions générales d’utilisation</a> • <a href="#">Plan du site</a> • <a href="#">Site by ...</a></p>
+  </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<footer>
+  <p>&copy; 2025 Mamda | MCMA Safi - Tous droits réservés</p>
+</footer>
+
+  <script>
+    function toggleSearch() {
+      document.querySelector('.search-wrapper').classList.toggle('active');
+    }
+    function showConfirmation() {
+    const email = document.getElementById('emailInput').value;
+    if (email.trim() === "") {
+      alert("Veuillez entrer votre adresse email.");
+    } else {
+      alert(`Merci pour votre inscription, ${email} !`);
+    }
+  }
+  </script>
+
+</body>
+</html>
