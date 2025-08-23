@@ -25,6 +25,6 @@ Admin
 user: admin
 pass: admin123
 
-staff create your own
+
 
 
