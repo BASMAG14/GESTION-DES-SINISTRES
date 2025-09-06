@@ -1,6 +1,4 @@
-##  Watch the demo video
 
-[![Watch the demo](https://img.youtube.com/vi/6igTLcWLhSk/0.jpg)](https://www.youtube.com/watch?v=6igTLcWLhSk)
 
 
 
