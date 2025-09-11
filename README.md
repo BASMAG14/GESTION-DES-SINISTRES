@@ -18,3 +18,14 @@
 - 👨‍💻 Gestion des utilisateurs (rôles et permissions)
 - 💬 Suivi des commentaires / échanges entre clients et agents
 - 📊 Tableau de bord avec statistiques
+
+ Backend – Secure & Scalable, built with:
+ • PHP + MySQL + AJAX for smooth and dynamic interaction
+ • Secure session handling and role-based access control
+ • Modular architecture with potential for API expansion
+ • Real-time data visualization using Chart.js
+🛠️ Tech Stack Used:
+ • Frontend: HTML5, CSS3, JavaScript, Bootstrap
+ • Backend: PHP, MySQL
+ • Tools: XAMPP, phpMyAdmin, jQuery, Chart.js
+ • Approach: Lightweight MVC design + iterative testing and refinement
