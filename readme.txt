@@ -2,6 +2,7 @@
 
 [![Watch the video](https://img.youtube.com/vi/Ee1IoUA_xaA/0.jpg)](https://youtu.be/Ee1IoUA_xaA)
 
+
 Objective: Design and develop a fully functional online claim management system to streamline the process of claim declaration, follow-up, and resolution for clients, agents, and administrators.
  Client Interface :
  • Online claim declaration form with detailed inputs
